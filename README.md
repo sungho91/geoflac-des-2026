@@ -39,6 +39,10 @@ Open `index.html`, find the `const TALKS = [ ... ]` list near the bottom, and ad
 ```
 Re-upload `index.html` to update the live site. (To share a file, upload it to Google Drive, set sharing to "Anyone with the link", and paste that link as `url`.)
 
+## Adding gallery images
+Drop DES result images in the [`gallery/`](gallery/) folder and register each one in the
+`const GALLERY = [ ... ]` list near the bottom of `index.html`. See [`gallery/README.md`](gallery/README.md).
+
 ## Linking from your personal homepage later
 Your personal site will live at `https://sungho91.github.io/`. Just add a link to
 `https://sungho91.github.io/geoflac-des-2026/` from there to connect them.

@@ -4,6 +4,11 @@ token.git.txt
 *.secret
 .env
 
+# Source figures / working files — not for the public site
+Figures/
+*.pptx
+*.ppt
+
 # OS / editor junk
 Thumbs.db
 .DS_Store
