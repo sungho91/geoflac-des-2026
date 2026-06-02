@@ -1,0 +1,10 @@
+# Secrets — never commit these
+token.git.txt
+*.token
+*.secret
+.env
+
+# OS / editor junk
+Thumbs.db
+.DS_Store
+.vscode/

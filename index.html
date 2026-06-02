@@ -190,6 +190,25 @@
     footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
     footer a:hover { color: var(--accent); }
 
+    /* ---------- Talks ---------- */
+    .talks-list { display: grid; gap: 16px; }
+    .talk {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 26px 30px;
+      transition: border-color .2s ease, transform .2s ease;
+    }
+    .talk:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .talk h3 { font-size: 1.2rem; margin-bottom: 6px; }
+    .talk .speaker { color: var(--accent); font-size: .9rem; font-weight: 600; margin-bottom: 12px; }
+    .talk .speaker .affil { color: var(--muted); font-weight: 400; }
+    .talk .abstract { color: var(--muted); font-size: .95rem; }
+    .talk .files { margin-top: 14px; display: flex; gap: 10px; flex-wrap: wrap; }
+    .talk .files a {
+      font-size: .85rem; color: var(--accent); border: 1px solid var(--border);
+      padding: 6px 14px; border-radius: 8px; transition: border-color .2s, background .2s;
+    }
+    .talk .files a:hover { border-color: var(--accent); background: rgba(56,224,196,.08); }
+
     /* reveal on scroll */
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
     .reveal.in { opacity: 1; transform: none; }
@@ -204,6 +223,8 @@
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#schedule">Schedule</a>
+        <a href="#talks">Talks</a>
+        <a href="#call">Submit a talk</a>
         <a href="#venue">Venue</a>
         <a href="#faq">FAQ</a>
       </div>
@@ -297,6 +318,53 @@
     </div>
   </section>
 
+  <!-- ===== Talks (accepted presentations) ===== -->
+  <section id="talks">
+    <div class="wrap reveal">
+      <div class="section-tag">Program</div>
+      <h2 class="section-title">Talks</h2>
+      <p class="section-intro">Accepted presentations from our speakers. Slides and materials are linked where available. Want to present? See the <a href="#call" style="color:var(--accent)">Call for Presentations</a> below.</p>
+
+      <div id="talks-list" class="talks-list"><!-- rendered from data below --></div>
+      <p id="talks-empty" class="note" style="display:none">No talks have been published yet — check back soon, or submit yours below.</p>
+    </div>
+  </section>
+
+  <!-- ===== Call for Presentations ===== -->
+  <section id="call" style="background:var(--bg-soft)">
+    <div class="wrap reveal">
+      <div class="section-tag">Speakers</div>
+      <h2 class="section-title">Call for Presentations</h2>
+      <p class="section-intro">Share your work with the GeoFLAC/DES community. We welcome talks on models, methods, tools, results, and works in progress — from seasoned developers and newcomers alike.</p>
+
+      <div class="cards" style="margin-bottom:40px">
+        <div class="card">
+          <div class="ico">📝</div>
+          <h3>1. Prepare</h3>
+          <p>A talk <b>title</b> and a short <b>abstract</b> (150–250 words). Optionally your slides or paper.</p>
+        </div>
+        <div class="card">
+          <div class="ico">📤</div>
+          <h3>2. Submit</h3>
+          <p>Send your title, abstract, and file through the submission form. Takes a couple of minutes.</p>
+        </div>
+        <div class="card">
+          <div class="ico">✅</div>
+          <h3>3. Get listed</h3>
+          <p>Accepted talks appear in the <a href="#talks" style="color:var(--accent)">Talks</a> section above with your name and materials.</p>
+        </div>
+      </div>
+
+      <div class="band">
+        <h2>Submit your talk</h2>
+        <p>Title · abstract · presentation file (PDF / PPT). Submissions are reviewed on a rolling basis.</p>
+        <!-- TODO: replace # with your Google Form link (enable "File upload" question for slides) -->
+        <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Open submission form</a>
+        <p style="margin-top:20px;font-size:.82rem">Submission deadline: <b>TBA</b> · Questions? <a href="mailto:organizer@example.com" style="color:var(--accent)">organizer@example.com</a></p>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== Venue ===== -->
   <section id="venue">
     <div class="wrap reveal">
@@ -382,6 +450,40 @@
   </footer>
 
   <script>
+    /* =========================================================
+       TALKS DATA — edit this list to publish accepted talks.
+       Copy a block, fill it in, and re-upload index.html.
+       'files' is optional; each file = { label, url }.
+       Set 'url' to a public link (e.g. a Google Drive share link).
+       ========================================================= */
+    const TALKS = [
+      // ---- EXAMPLE (delete or replace) ----
+      {
+        title: "Example: Adaptive Meshing in GeoFLAC",
+        speaker: "Jane Doe",
+        affiliation: "KIGAM",
+        abstract: "A short summary of the talk goes here. Describe the problem, the approach, and the key result in two or three sentences so attendees know what to expect.",
+        files: [
+          // { label: "Slides (PDF)", url: "https://drive.google.com/..." }
+        ]
+      },
+      // ---- add more talks below ----
+    ];
+
+    (function renderTalks() {
+      const list = document.getElementById('talks-list');
+      const empty = document.getElementById('talks-empty');
+      if (!TALKS.length) { empty.style.display = 'block'; return; }
+      const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+      list.innerHTML = TALKS.map(t => `
+        <div class="talk">
+          <h3>${esc(t.title)}</h3>
+          <div class="speaker">${esc(t.speaker)}${t.affiliation ? ` <span class="affil">· ${esc(t.affiliation)}</span>` : ''}</div>
+          <p class="abstract">${esc(t.abstract)}</p>
+          ${(t.files && t.files.length) ? `<div class="files">${t.files.map(f => `<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.label)} ↗</a>`).join('')}</div>` : ''}
+        </div>`).join('');
+    })();
+
     // Reveal-on-scroll
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
