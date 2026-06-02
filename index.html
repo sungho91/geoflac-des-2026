@@ -15,15 +15,16 @@
 
   <style>
     :root {
-      --bg:        #0a0e14;
-      --bg-soft:   #111722;
-      --card:      #151c28;
-      --border:    #233044;
-      --text:      #e6edf6;
-      --muted:     #8da2bd;
-      --accent:    #38e0c4;   /* teal-neon */
-      --accent-2:  #6f8cff;   /* indigo */
-      --glow:      0 0 32px rgba(56, 224, 196, .25);
+      --bg:        #f7f9fc;   /* light page background */
+      --bg-soft:   #eef2f8;   /* alternating section background */
+      --card:      #ffffff;   /* cards pop white */
+      --border:    #dde4ee;
+      --text:      #1a2433;
+      --muted:     #5b6878;
+      --accent:    #0d9488;   /* teal-600 */
+      --accent-2:  #4f46e5;   /* indigo-600 */
+      --glow:      0 10px 28px rgba(13, 148, 136, .22);
+      --shadow:    0 1px 3px rgba(16, 24, 40, .06), 0 4px 16px rgba(16, 24, 40, .05);
       --radius:    16px;
       --maxw:      1080px;
     }
@@ -46,7 +47,7 @@
     nav {
       position: sticky; top: 0; z-index: 50;
       backdrop-filter: blur(12px);
-      background: rgba(10, 14, 20, .72);
+      background: rgba(255, 255, 255, .8);
       border-bottom: 1px solid var(--border);
     }
     nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
@@ -55,7 +56,7 @@
     .nav-links { display: flex; gap: 28px; font-size: .92rem; color: var(--muted); }
     .nav-links a:hover { color: var(--accent); }
     .nav-cta {
-      background: var(--accent); color: #04201b; font-weight: 700;
+      background: var(--accent); color: #fff; font-weight: 700;
       padding: 8px 16px; border-radius: 10px; font-size: .9rem;
       transition: transform .15s ease, box-shadow .15s ease;
     }
@@ -73,7 +74,7 @@
       content: ""; position: absolute; inset: 0; z-index: 0;
       background:
         radial-gradient(60% 50% at 50% 0%, rgba(111,140,255,.18), transparent 70%),
-        radial-gradient(50% 50% at 80% 20%, rgba(56,224,196,.14), transparent 70%);
+        radial-gradient(50% 50% at 80% 20%, rgba(13,148,136,.12), transparent 70%);
     }
     .grid-bg {
       position: absolute; inset: 0; z-index: 0; opacity: .35;
@@ -93,7 +94,7 @@
     .badge b { color: var(--accent); font-weight: 600; }
     .hero h1 {
       font-size: clamp(2.4rem, 6vw, 4.4rem);
-      background: linear-gradient(120deg, #fff 30%, var(--accent) 70%, var(--accent-2));
+      background: linear-gradient(120deg, var(--text) 20%, var(--accent) 65%, var(--accent-2));
       -webkit-background-clip: text; background-clip: text; color: transparent;
       margin-bottom: 20px;
     }
@@ -104,7 +105,7 @@
       transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
       border: 1px solid transparent;
     }
-    .btn-primary { background: var(--accent); color: #04201b; }
+    .btn-primary { background: var(--accent); color: #fff; }
     .btn-primary:hover { transform: translateY(-3px); box-shadow: var(--glow); }
     .btn-ghost { border-color: var(--border); color: var(--text); background: var(--bg-soft); }
     .btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); }
@@ -123,10 +124,10 @@
     .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
     .card {
       background: var(--card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 28px;
-      transition: transform .2s ease, border-color .2s ease;
+      border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow);
+      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
     }
-    .card:hover { transform: translateY(-4px); border-color: var(--accent); }
+    .card:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: var(--glow); }
     .card .ico { font-size: 1.7rem; margin-bottom: 14px; }
     .card h3 { font-size: 1.15rem; margin-bottom: 8px; }
     .card p { color: var(--muted); font-size: .95rem; }
@@ -137,7 +138,7 @@
       display: grid; grid-template-columns: 130px 1fr; gap: 24px;
       background: var(--card); border: 1px solid var(--border);
       border-radius: var(--radius); padding: 24px 28px; align-items: center;
-      transition: border-color .2s ease;
+      box-shadow: var(--shadow); transition: border-color .2s ease;
     }
     .day:hover { border-color: var(--accent-2); }
     .day .date { font-weight: 800; color: var(--accent); }
@@ -151,7 +152,7 @@
     /* ---------- Venue ---------- */
     .venue { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; }
     @media (max-width: 760px) { .venue { grid-template-columns: 1fr; } }
-    .venue-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px; }
+    .venue-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px; box-shadow: var(--shadow); }
     .venue-card h3 { font-size: 1.4rem; margin-bottom: 6px; }
     .venue-card .addr { color: var(--muted); margin-bottom: 20px; }
     .venue ul { list-style: none; }
@@ -164,7 +165,7 @@
     .band {
       text-align: center; border-radius: 24px; padding: 64px 32px;
       background:
-        radial-gradient(70% 120% at 50% 0%, rgba(56,224,196,.16), transparent 70%),
+        radial-gradient(70% 120% at 50% 0%, rgba(13,148,136,.14), transparent 70%),
         var(--bg-soft);
       border: 1px solid var(--border);
     }
@@ -174,7 +175,7 @@
     /* ---------- FAQ ---------- */
     .faq details {
       background: var(--card); border: 1px solid var(--border);
-      border-radius: 12px; padding: 4px 24px; margin-bottom: 12px;
+      border-radius: 12px; padding: 4px 24px; margin-bottom: 12px; box-shadow: var(--shadow);
     }
     .faq summary {
       cursor: pointer; padding: 18px 0; font-weight: 600; list-style: none;
@@ -194,7 +195,7 @@
     .talks-list { display: grid; gap: 16px; }
     .talk {
       background: var(--card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 26px 30px;
+      border-radius: var(--radius); padding: 26px 30px; box-shadow: var(--shadow);
       transition: border-color .2s ease, transform .2s ease;
     }
     .talk:hover { border-color: var(--accent); transform: translateY(-3px); }
@@ -207,7 +208,7 @@
       font-size: .85rem; color: var(--accent); border: 1px solid var(--border);
       padding: 6px 14px; border-radius: 8px; transition: border-color .2s, background .2s;
     }
-    .talk .files a:hover { border-color: var(--accent); background: rgba(56,224,196,.08); }
+    .talk .files a:hover { border-color: var(--accent); background: rgba(13,148,136,.08); }
 
     /* reveal on scroll */
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
@@ -239,7 +240,7 @@
     <div class="wrap">
       <div class="badge">📍 KIGAM &nbsp;·&nbsp; <b>Nov 2–6, 2026</b> &nbsp;·&nbsp; In-person &nbsp;·&nbsp; Free</div>
       <h1>GeoFLAC/DES<br />Workshop &amp; Hackathon</h1>
-      <p class="lead">A week to learn, build, and push the limits of geodynamic modeling — together. Five days of hands-on workshops and an open hackathon at KIGAM.</p>
+      <p class="lead">A week to learn, build, and push the limits of geodynamic modeling — together. Three days of hands-on workshops and a two-day hackathon at KIGAM.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="#register">Register — it's free</a>
         <a class="btn btn-ghost" href="#schedule">View schedule</a>
@@ -290,32 +291,44 @@
   <section id="schedule" style="background:var(--bg-soft)">
     <div class="wrap reveal">
       <div class="section-tag">Program</div>
-      <h2 class="section-title">Five days, one goal</h2>
-      <p class="section-intro">A week of workshops flowing into an open hackathon. The schedule below is tentative and will be finalized closer to the event.</p>
+      <h2 class="section-title">Three days of workshops, two days of hacking</h2>
+      <p class="section-intro">Days 1–3 are hands-on workshops with tutorials and talks; Days 4–5 are an open hackathon. Sessions run <b>10:00–17:00</b> daily, with a one-hour lunch break. The schedule below is tentative and will be finalized closer to the event.</p>
 
       <div class="schedule">
         <div class="day">
           <div class="date">Mon<span>Nov 2</span></div>
-          <div><h3>Kickoff &amp; Foundations</h3><p>Welcome, project overview, environment setup, and an introduction to the GeoFLAC/DES architecture.</p></div>
+          <div><h3>Workshop Day 1 — Foundations</h3><p>Welcome, project overview, environment setup, intro tutorials, and opening talks.</p></div>
         </div>
         <div class="day">
           <div class="date">Tue<span>Nov 3</span></div>
-          <div><h3>Hands-on Workshop I</h3><p>Building and running your first models. Core workflows, inputs, and outputs.</p></div>
+          <div><h3>Workshop Day 2 — Core</h3><p>Hands-on tutorials on core modeling workflows (inputs, outputs, first models), plus talks.</p></div>
         </div>
         <div class="day">
           <div class="date">Wed<span>Nov 4</span></div>
-          <div><h3>Hands-on Workshop II + Hackathon Kickoff</h3><p>Advanced topics in the morning; team formation and challenge selection in the afternoon.</p></div>
+          <div><h3>Workshop Day 3 — Advanced</h3><p>Advanced tutorials and talks. Hackathon team formation and challenge selection in the late afternoon.</p></div>
         </div>
         <div class="day">
           <div class="date">Thu<span>Nov 5</span></div>
-          <div><h3>Hackathon Day</h3><p>Full day of building with mentor support from core developers.</p></div>
+          <div><h3>Hackathon Day 1 — Build</h3><p>Teams work on their projects with mentor support from core developers.</p></div>
         </div>
         <div class="day">
           <div class="date">Fri<span>Nov 6</span></div>
-          <div><h3>Demos &amp; Wrap-up</h3><p>Final hacking, team presentations, awards, and closing.</p></div>
+          <div><h3>Hackathon Day 2 — Demos</h3><p>Final hacking, team presentations, awards, and closing.</p></div>
         </div>
       </div>
-      <p class="note">* Schedule subject to change. Detailed times will be shared with registered participants.</p>
+
+      <div class="card" style="margin-top:28px">
+        <h3 style="margin-bottom:16px">A typical workshop day (Days 1–3)</h3>
+        <div style="display:grid;gap:10px;color:var(--muted);font-size:.95rem">
+          <div><b style="color:var(--accent)">10:00 – 12:00</b> &nbsp; Tutorial (hands-on)</div>
+          <div><b style="color:var(--accent)">12:00 – 13:00</b> &nbsp; Lunch — KIGAM cafeteria (cash only, ~₩7,000)</div>
+          <div><b style="color:var(--accent)">13:00 – 14:40</b> &nbsp; Talks</div>
+          <div><b style="color:var(--accent)">14:40 – 15:00</b> &nbsp; Coffee break</div>
+          <div><b style="color:var(--accent)">15:00 – 17:00</b> &nbsp; Tutorial / hands-on</div>
+        </div>
+      </div>
+
+      <p class="note">* Schedule subject to change. Detailed times will be shared with registered participants. Please bring cash for lunch.</p>
     </div>
   </section>
 
@@ -381,9 +394,11 @@
       <div class="venue">
         <div class="venue-card">
           <h3>KIGAM</h3>
-          <p class="addr">Korea Institute of Geoscience and Mineral Resources<br />Daejeon, Republic of Korea</p>
+          <p class="addr">Korea Institute of Geoscience and Mineral Resources<br />124 Gwahak-ro, Yuseong-gu, Daejeon, Republic of Korea</p>
           <ul>
+            <li>🏛️ <span>Earthquake Research Center (Bldg.&nbsp;A2)<br /><b>Quaternary Room · Room 212</b></span></li>
             <li>🗓️ <span><b>Nov 2–6, 2026</b> &nbsp;(Mon–Fri)</span></li>
+            <li>🍽️ <span>Lunch at the KIGAM cafeteria — <b>cash only, ~₩7,000</b></span></li>
             <li>📍 <span><b>In-person only</b> — no remote option</span></li>
             <li>💸 <span><b>Free</b> to attend</span></li>
             <li>🌐 <span>Working language: <b>English</b></span></li>
