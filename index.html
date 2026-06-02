@@ -316,7 +316,7 @@
     <div class="wrap reveal">
       <div class="section-tag">The tool</div>
       <h2 class="section-title">What is DynEarthSol?</h2>
-      <p class="section-intro"><b>DynEarthSol (DES)</b> is the open-source code we use throughout the tutorials — a finite element solver for the long-term deformation of Earth's lithosphere in 2D and 3D. Instead of assembling and storing the enormous matrices that traditional implicit methods require, DES uses an <b>explicit, matrix-free</b> formulation based on the FLAC algorithm, so it sidesteps the "memory wall" and scales efficiently across CPUs and GPUs.</p>
+      <p class="section-intro"><b>DynEarthSol</b> is the open-source code we use throughout the tutorials — a finite element solver for the long-term deformation of Earth's lithosphere in 2D and 3D. Instead of assembling and storing the enormous matrices that traditional implicit methods require, DynEarthSol uses an <b>explicit, matrix-free</b> formulation based on the FLAC algorithm, so it sidesteps the "memory wall" and scales efficiently across CPUs and GPUs.</p>
 
       <div class="cards">
         <div class="card">
@@ -349,7 +349,7 @@
       <h2 class="section-title">Gallery</h2>
       <p class="section-intro">Results, simulations, and visualizations made with DynEarthSol. Participants are welcome to contribute — see how to add yours in the project README.</p>
       <div id="gallery-grid" class="gallery-grid"><!-- rendered from data below --></div>
-      <p id="gallery-empty" class="note" style="display:none">No images yet — DES results will appear here soon.</p>
+      <p id="gallery-empty" class="note" style="display:none">No images yet — DynEarthSol results will appear here soon.</p>
     </div>
   </section>
 
@@ -403,7 +403,7 @@
     <div class="wrap reveal">
       <div class="section-tag">Before you come</div>
       <h2 class="section-title">Build DynEarthSol in advance</h2>
-      <p class="section-intro">The tutorials are run with <b>DynEarthSol (DES)</b>. We will <b>not</b> cover the build process during the workshop, so please build it on your own laptop beforehand and confirm it runs. This way we can dive straight into modeling on Day 1.</p>
+      <p class="section-intro">The tutorials are run with <b>DynEarthSol</b>. We will <b>not</b> cover the build process during the workshop, so please build it on your own laptop beforehand and confirm it runs. This way we can dive straight into modeling on Day 1.</p>
 
       <div class="cards">
         <div class="card">
@@ -432,7 +432,7 @@ make</div>
         <div class="card">
           <div class="ico">✅</div>
           <h3>3. Bring it ready</h3>
-          <p>Come with DES <b>already built and running</b> on your laptop. Run one of the examples to confirm it works.</p>
+          <p>Come with DynEarthSol <b>already built and running</b> on your laptop. Run one of the examples to confirm it works.</p>
           <p style="margin-top:12px">⚠️ There is <b>no public Wi-Fi</b> on-site, so download any data, dependencies, and docs you'll need beforehand.</p>
           <p style="margin-top:12px">Stuck on the build? Email us <b>before</b> the event so we can help in advance: <a href="mailto:slee91@kigam.re.kr?subject=GeoFLAC%2FDES%202026%20%E2%80%94%20DynEarthSol%20build%20help" style="color:var(--accent)">slee91@kigam.re.kr</a></p>
         </div>
@@ -633,11 +633,11 @@ make</div>
         </details>
         <details>
           <summary>Do I need to install anything beforehand?</summary>
-          <p>Yes. The tutorials use <b>DynEarthSol (DES)</b>, and the build process is not covered during the workshop. Please build it on your laptop in advance — see <a href="#prepare" style="color:var(--accent)">Before you come</a>. If you run into build problems, email us before the event and we'll help.</p>
+          <p>Yes. The tutorials use <b>DynEarthSol</b>, and the build process is not covered during the workshop. Please build it on your laptop in advance — see <a href="#prepare" style="color:var(--accent)">Before you come</a>. If you run into build problems, email us before the event and we'll help.</p>
         </details>
         <details>
           <summary>What should I bring?</summary>
-          <p>A laptop with <b>DynEarthSol (DES) already built and running</b>, and a power adapter. Also bring cash for lunch (KIGAM cafeteria, ~₩7,000).</p>
+          <p>A laptop with <b>DynEarthSol already built and running</b>, and a power adapter. Also bring cash for lunch (KIGAM cafeteria, ~₩7,000).</p>
         </details>
       </div>
     </div>
@@ -663,14 +663,14 @@ make</div>
        Set 'url' to a public link (e.g. a Google Drive share link).
        ========================================================= */
     const TALKS = [
-      // ---- EXAMPLE (delete or replace) ----
+      // ---- talks (add/edit entries; fill in speaker & abstract once confirmed) ----
       {
-        title: "Example: Adaptive Meshing in GeoFLAC",
-        speaker: "Jane Doe",
+        title: "Progress in LagHost",
+        speaker: "TBA",
         affiliation: "KIGAM",
-        abstract: "A short summary of the talk goes here. Describe the problem, the approach, and the key result in two or three sentences so attendees know what to expect.",
+        abstract: "Abstract coming soon.",
         files: [
-          // { label: "Slides (PDF)", url: "https://drive.google.com/..." }
+          // { label: "Slides (PDF)", url: "https://..." }
         ]
       },
       // ---- add more talks below ----
@@ -691,7 +691,7 @@ make</div>
     })();
 
     /* =========================================================
-       GALLERY DATA — add DES result images here.
+       GALLERY DATA — add DynEarthSol result images here.
        1) Put image files in the gallery/ folder of the repo.
        2) Add an entry below: src (path), caption, optional credit.
        3) Re-upload index.html (and the image) to publish.
@@ -707,7 +707,7 @@ make</div>
       const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
       grid.innerHTML = GALLERY.map(g => `
         <figure>
-          <a href="${esc(g.src)}" target="_blank" rel="noopener"><img src="${esc(g.src)}" alt="${esc(g.caption || 'DES result')}" loading="lazy"></a>
+          <a href="${esc(g.src)}" target="_blank" rel="noopener"><img src="${esc(g.src)}" alt="${esc(g.caption || 'DynEarthSol result')}" loading="lazy"></a>
           ${(g.caption || g.credit) ? `<figcaption>${g.caption ? `<b>${esc(g.caption)}</b>` : ''}${g.credit ? `<br>${esc(g.credit)}` : ''}</figcaption>` : ''}
         </figure>`).join('');
     })();
