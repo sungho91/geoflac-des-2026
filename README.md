@@ -1,6 +1,6 @@
-# GeoFLAC/DES Workshop & Hackathon 2026
+# GeoFLAC/DynEarthSol Workshop & Hackathon 2026
 
-Website for the **GeoFLAC/DES Workshop & Hackathon** — KIGAM, November 2–6, 2026. In-person, free, open to everyone.
+Website for the **GeoFLAC/DynEarthSol Workshop & Hackathon** — KIGAM, November 2–6, 2026. In-person, free, open to everyone.
 
 🔗 **Live site:** https://YOUR-GITHUB-ID.github.io/geoflac-des-2026/ *(update after publishing)*
 
