@@ -15,10 +15,16 @@ Everything is in a single file: [`index.html`](index.html). Open it in a browser
 - [ ] Update the live-site URL above
 
 ## Collecting talks (presenter submissions)
-GitHub Pages is static, so it can't receive uploads itself. Use a free **Google Form**:
-1. Create a form at https://forms.google.com with questions: **Talk title**, **Abstract**, **Speaker name**, **Affiliation**, and a **File upload** question for slides (PDF/PPT).
-2. Copy the form's share link into the "Open submission form" button in `index.html` (search `TODO`).
-3. Submissions collect automatically in a linked Google Sheet (files go to your Drive).
+GitHub Pages is static, so it can't receive uploads itself. Google Drive/Forms and OneDrive
+are blocked on the KIGAM network, so we use a free **Tally.so** form + email for large files:
+
+1. Create a form at https://tally.so with: **Talk title**, **Abstract**, **Speaker name**,
+   **Affiliation**, **Email**, and a **File upload** question for slides.
+   - Tally's free plan caps uploads at **10 MB per file** (enforced automatically).
+2. Publish, then copy the form link (`https://tally.so/r/XXXXXX`) into the
+   "Open submission form" button in `index.html` (search `TODO`).
+3. **Large files (videos, big decks > 10 MB):** presenters email them to slee91@kigam.re.kr.
+   The site already has an "Email a large file" button (a pre-filled `mailto:` link) for this.
 
 ## Publishing accepted talks
 Open `index.html`, find the `const TALKS = [ ... ]` list near the bottom, and add one block per talk:
