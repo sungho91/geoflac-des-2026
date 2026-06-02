@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GeoFLAC/DES Workshop &amp; Hackathon 2026</title>
+  <meta name="description" content="GeoFLAC/DES Workshop & Hackathon — KIGAM, November 2–6, 2026. Free, in-person. For GeoFLAC/DES developers and anyone interested." />
+
+  <!-- Open Graph (link previews on Slack / KakaoTalk / Twitter) -->
+  <meta property="og:title" content="GeoFLAC/DES Workshop & Hackathon 2026" />
+  <meta property="og:description" content="KIGAM · Nov 2–6, 2026 · In-person · Free. Build, learn, and hack on GeoFLAC/DES." />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>" />
+
+  <style>
+    :root {
+      --bg:        #0a0e14;
+      --bg-soft:   #111722;
+      --card:      #151c28;
+      --border:    #233044;
+      --text:      #e6edf6;
+      --muted:     #8da2bd;
+      --accent:    #38e0c4;   /* teal-neon */
+      --accent-2:  #6f8cff;   /* indigo */
+      --glow:      0 0 32px rgba(56, 224, 196, .25);
+      --radius:    16px;
+      --maxw:      1080px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body {
+      font-family: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3 { line-height: 1.2; font-weight: 700; letter-spacing: -.02em; }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+    /* ---------- Nav ---------- */
+    nav {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(10, 14, 20, .72);
+      border-bottom: 1px solid var(--border);
+    }
+    nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand { font-weight: 800; font-size: 1.05rem; display: flex; align-items: center; gap: 10px; }
+    .brand .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: var(--glow); }
+    .nav-links { display: flex; gap: 28px; font-size: .92rem; color: var(--muted); }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-cta {
+      background: var(--accent); color: #04201b; font-weight: 700;
+      padding: 8px 16px; border-radius: 10px; font-size: .9rem;
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .nav-cta:hover { transform: translateY(-2px); box-shadow: var(--glow); }
+    @media (max-width: 760px) { .nav-links { display: none; } }
+
+    /* ---------- Hero ---------- */
+    header.hero {
+      position: relative;
+      padding: 110px 0 96px;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: ""; position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(60% 50% at 50% 0%, rgba(111,140,255,.18), transparent 70%),
+        radial-gradient(50% 50% at 80% 20%, rgba(56,224,196,.14), transparent 70%);
+    }
+    .grid-bg {
+      position: absolute; inset: 0; z-index: 0; opacity: .35;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(70% 60% at 50% 0%, #000 30%, transparent 75%);
+    }
+    .hero > .wrap { position: relative; z-index: 1; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid var(--border); background: var(--bg-soft);
+      color: var(--muted); padding: 6px 14px; border-radius: 999px;
+      font-size: .82rem; margin-bottom: 28px;
+    }
+    .badge b { color: var(--accent); font-weight: 600; }
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 4.4rem);
+      background: linear-gradient(120deg, #fff 30%, var(--accent) 70%, var(--accent-2));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      margin-bottom: 20px;
+    }
+    .hero p.lead { font-size: clamp(1.05rem, 2.2vw, 1.3rem); color: var(--muted); max-width: 640px; margin: 0 auto 36px; }
+    .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      padding: 14px 28px; border-radius: 12px; font-weight: 700; font-size: 1rem;
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+      border: 1px solid transparent;
+    }
+    .btn-primary { background: var(--accent); color: #04201b; }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: var(--glow); }
+    .btn-ghost { border-color: var(--border); color: var(--text); background: var(--bg-soft); }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); }
+
+    .facts { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; margin-top: 56px; }
+    .fact { text-align: center; }
+    .fact .k { font-size: 1.5rem; font-weight: 800; color: var(--accent); }
+    .fact .v { font-size: .85rem; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+
+    /* ---------- Sections ---------- */
+    section { padding: 88px 0; }
+    .section-tag { color: var(--accent); font-size: .85rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    .section-title { font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 12px 0 18px; }
+    .section-intro { color: var(--muted); max-width: 640px; margin-bottom: 48px; }
+
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px;
+      transition: transform .2s ease, border-color .2s ease;
+    }
+    .card:hover { transform: translateY(-4px); border-color: var(--accent); }
+    .card .ico { font-size: 1.7rem; margin-bottom: 14px; }
+    .card h3 { font-size: 1.15rem; margin-bottom: 8px; }
+    .card p { color: var(--muted); font-size: .95rem; }
+
+    /* ---------- Schedule ---------- */
+    .schedule { display: grid; gap: 14px; }
+    .day {
+      display: grid; grid-template-columns: 130px 1fr; gap: 24px;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 24px 28px; align-items: center;
+      transition: border-color .2s ease;
+    }
+    .day:hover { border-color: var(--accent-2); }
+    .day .date { font-weight: 800; color: var(--accent); }
+    .day .date span { display: block; color: var(--muted); font-weight: 500; font-size: .82rem; }
+    .day h3 { font-size: 1.1rem; margin-bottom: 4px; }
+    .day p { color: var(--muted); font-size: .92rem; }
+    @media (max-width: 600px) { .day { grid-template-columns: 1fr; gap: 8px; } }
+
+    .note { font-size: .85rem; color: var(--muted); margin-top: 16px; font-style: italic; }
+
+    /* ---------- Venue ---------- */
+    .venue { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; }
+    @media (max-width: 760px) { .venue { grid-template-columns: 1fr; } }
+    .venue-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px; }
+    .venue-card h3 { font-size: 1.4rem; margin-bottom: 6px; }
+    .venue-card .addr { color: var(--muted); margin-bottom: 20px; }
+    .venue ul { list-style: none; }
+    .venue li { padding: 8px 0; border-bottom: 1px solid var(--border); display: flex; gap: 12px; align-items: center; color: var(--muted); }
+    .venue li:last-child { border-bottom: none; }
+    .venue li b { color: var(--text); }
+    .map-frame { width: 100%; height: 320px; border: 1px solid var(--border); border-radius: var(--radius); filter: grayscale(.3) contrast(1.1); }
+
+    /* ---------- CTA band ---------- */
+    .band {
+      text-align: center; border-radius: 24px; padding: 64px 32px;
+      background:
+        radial-gradient(70% 120% at 50% 0%, rgba(56,224,196,.16), transparent 70%),
+        var(--bg-soft);
+      border: 1px solid var(--border);
+    }
+    .band h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 14px; }
+    .band p { color: var(--muted); max-width: 520px; margin: 0 auto 28px; }
+
+    /* ---------- FAQ ---------- */
+    .faq details {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 4px 24px; margin-bottom: 12px;
+    }
+    .faq summary {
+      cursor: pointer; padding: 18px 0; font-weight: 600; list-style: none;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: "+"; color: var(--accent); font-size: 1.4rem; transition: transform .2s; }
+    .faq details[open] summary::after { transform: rotate(45deg); }
+    .faq p { color: var(--muted); padding: 0 0 18px; }
+
+    /* ---------- Footer ---------- */
+    footer { border-top: 1px solid var(--border); padding: 48px 0; color: var(--muted); font-size: .9rem; }
+    footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    footer a:hover { color: var(--accent); }
+
+    /* reveal on scroll */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Nav ===== -->
+  <nav>
+    <div class="wrap">
+      <div class="brand"><span class="dot"></span> GeoFLAC/DES &nbsp;<span style="color:var(--muted);font-weight:500">2026</span></div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#venue">Venue</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <a class="nav-cta" href="#register">Register</a>
+    </div>
+  </nav>
+
+  <!-- ===== Hero ===== -->
+  <header class="hero">
+    <div class="grid-bg"></div>
+    <div class="wrap">
+      <div class="badge">📍 KIGAM &nbsp;·&nbsp; <b>Nov 2–6, 2026</b> &nbsp;·&nbsp; In-person &nbsp;·&nbsp; Free</div>
+      <h1>GeoFLAC/DES<br />Workshop &amp; Hackathon</h1>
+      <p class="lead">A week to learn, build, and push the limits of geodynamic modeling — together. Five days of hands-on workshops and an open hackathon at KIGAM.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#register">Register — it's free</a>
+        <a class="btn btn-ghost" href="#schedule">View schedule</a>
+      </div>
+
+      <div class="facts">
+        <div class="fact"><div class="k">5</div><div class="v">Days</div></div>
+        <div class="fact"><div class="k">KIGAM</div><div class="v">Venue</div></div>
+        <div class="fact"><div class="k">$0</div><div class="v">Cost</div></div>
+        <div class="fact"><div class="k">Open</div><div class="v">To everyone</div></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== About ===== -->
+  <section id="about">
+    <div class="wrap reveal">
+      <div class="section-tag">About the event</div>
+      <h2 class="section-title">Build the future of GeoFLAC/DES</h2>
+      <p class="section-intro">Whether you maintain the code, run simulations, or are simply curious about geodynamic modeling, this is your week. Learn the internals, sharpen your skills, and team up to build something new.</p>
+
+      <div class="cards">
+        <div class="card">
+          <div class="ico">🛠️</div>
+          <h3>Hands-on Workshops</h3>
+          <p>Guided sessions on GeoFLAC/DES — from first build to advanced modeling techniques, led by core developers.</p>
+        </div>
+        <div class="card">
+          <div class="ico">🚀</div>
+          <h3>Open Hackathon</h3>
+          <p>Form a team, pick a challenge, and ship. New features, bug fixes, tooling, visualizations — anything that moves the project forward.</p>
+        </div>
+        <div class="card">
+          <div class="ico">🤝</div>
+          <h3>Community</h3>
+          <p>Meet the people behind the code. Connect with developers and researchers working on the same problems you are.</p>
+        </div>
+        <div class="card">
+          <div class="ico">🎓</div>
+          <h3>For everyone</h3>
+          <p>GeoFLAC/DES developers and anyone interested are welcome — beginners included. No prior contribution required.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Schedule ===== -->
+  <section id="schedule" style="background:var(--bg-soft)">
+    <div class="wrap reveal">
+      <div class="section-tag">Program</div>
+      <h2 class="section-title">Five days, one goal</h2>
+      <p class="section-intro">A week of workshops flowing into an open hackathon. The schedule below is tentative and will be finalized closer to the event.</p>
+
+      <div class="schedule">
+        <div class="day">
+          <div class="date">Mon<span>Nov 2</span></div>
+          <div><h3>Kickoff &amp; Foundations</h3><p>Welcome, project overview, environment setup, and an introduction to the GeoFLAC/DES architecture.</p></div>
+        </div>
+        <div class="day">
+          <div class="date">Tue<span>Nov 3</span></div>
+          <div><h3>Hands-on Workshop I</h3><p>Building and running your first models. Core workflows, inputs, and outputs.</p></div>
+        </div>
+        <div class="day">
+          <div class="date">Wed<span>Nov 4</span></div>
+          <div><h3>Hands-on Workshop II + Hackathon Kickoff</h3><p>Advanced topics in the morning; team formation and challenge selection in the afternoon.</p></div>
+        </div>
+        <div class="day">
+          <div class="date">Thu<span>Nov 5</span></div>
+          <div><h3>Hackathon Day</h3><p>Full day of building with mentor support from core developers.</p></div>
+        </div>
+        <div class="day">
+          <div class="date">Fri<span>Nov 6</span></div>
+          <div><h3>Demos &amp; Wrap-up</h3><p>Final hacking, team presentations, awards, and closing.</p></div>
+        </div>
+      </div>
+      <p class="note">* Schedule subject to change. Detailed times will be shared with registered participants.</p>
+    </div>
+  </section>
+
+  <!-- ===== Venue ===== -->
+  <section id="venue">
+    <div class="wrap reveal">
+      <div class="section-tag">Location</div>
+      <h2 class="section-title">Where it happens</h2>
+      <p class="section-intro">This is an in-person event held at KIGAM. There is no online/remote option — join us on-site.</p>
+
+      <div class="venue">
+        <div class="venue-card">
+          <h3>KIGAM</h3>
+          <p class="addr">Korea Institute of Geoscience and Mineral Resources<br />Daejeon, Republic of Korea</p>
+          <ul>
+            <li>🗓️ <span><b>Nov 2–6, 2026</b> &nbsp;(Mon–Fri)</span></li>
+            <li>📍 <span><b>In-person only</b> — no remote option</span></li>
+            <li>💸 <span><b>Free</b> to attend</span></li>
+            <li>🌐 <span>Working language: <b>English</b></span></li>
+          </ul>
+        </div>
+        <iframe
+          class="map-frame"
+          title="KIGAM map"
+          loading="lazy"
+          src="https://www.google.com/maps?q=KIGAM+Korea+Institute+of+Geoscience+and+Mineral+Resources&output=embed">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Register band ===== -->
+  <section id="register">
+    <div class="wrap reveal">
+      <div class="band">
+        <h2>Join us at KIGAM</h2>
+        <p>Registration is free and open to everyone. Reserve your spot — seats are limited.</p>
+        <!-- TODO: replace # with your Google Form / registration link -->
+        <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Register now</a>
+        <p style="margin-top:20px;font-size:.82rem">Questions? Email <a href="mailto:organizer@example.com" style="color:var(--accent)">organizer@example.com</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section id="faq" style="background:var(--bg-soft)">
+    <div class="wrap reveal" style="max-width:760px">
+      <div class="section-tag">Questions</div>
+      <h2 class="section-title">FAQ</h2>
+
+      <div class="faq" style="margin-top:32px">
+        <details open>
+          <summary>Who can attend?</summary>
+          <p>GeoFLAC/DES developers and anyone interested in geodynamic modeling. Beginners are welcome — you don't need prior experience with the codebase.</p>
+        </details>
+        <details>
+          <summary>How much does it cost?</summary>
+          <p>Nothing. The event is completely free to attend. (Travel and accommodation are not covered.)</p>
+        </details>
+        <details>
+          <summary>Is there an online option?</summary>
+          <p>No. This is an in-person event held on-site at KIGAM only.</p>
+        </details>
+        <details>
+          <summary>Do I need a team for the hackathon?</summary>
+          <p>No. You can come solo and form or join a team during the kickoff session. Existing teams are welcome too.</p>
+        </details>
+        <details>
+          <summary>What should I bring?</summary>
+          <p>A laptop set up for development. Setup guidance will be provided on Day 1 and shared with registered participants beforehand.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <div class="wrap">
+      <div>© 2026 GeoFLAC/DES Workshop &amp; Hackathon · Hosted at KIGAM</div>
+      <div>
+        <a href="#about">About</a> &nbsp;·&nbsp;
+        <a href="#schedule">Schedule</a> &nbsp;·&nbsp;
+        <a href="#register">Register</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Reveal-on-scroll
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+
+</body>
+</html>
