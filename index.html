@@ -210,6 +210,15 @@
     }
     .talk .files a:hover { border-color: var(--accent); background: rgba(13,148,136,.08); }
 
+    /* ---------- Code block ---------- */
+    .codeblock {
+      background: var(--bg-soft); border: 1px solid var(--border);
+      border-radius: 10px; padding: 16px 18px; margin: 14px 0 4px;
+      font-family: ui-monospace, "Cascadia Code", "SF Mono", Consolas, monospace;
+      font-size: .86rem; color: var(--text); overflow-x: auto; white-space: pre; line-height: 1.7;
+    }
+    .codeblock .c { color: var(--muted); }
+
     /* reveal on scroll */
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
     .reveal.in { opacity: 1; transform: none; }
@@ -224,6 +233,7 @@
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#schedule">Schedule</a>
+        <a href="#prepare">Prepare</a>
         <a href="#talks">Talks</a>
         <a href="#call">Submit a talk</a>
         <a href="#venue">Venue</a>
@@ -332,6 +342,47 @@
     </div>
   </section>
 
+  <!-- ===== Prepare (prerequisites) ===== -->
+  <section id="prepare">
+    <div class="wrap reveal">
+      <div class="section-tag">Before you come</div>
+      <h2 class="section-title">Build DynEarthSol in advance</h2>
+      <p class="section-intro">The tutorials are run with <b>DynEarthSol (DES)</b>. We will <b>not</b> cover the build process during the workshop, so please build it on your own laptop beforehand and confirm it runs. This way we can dive straight into modeling on Day 1.</p>
+
+      <div class="cards">
+        <div class="card">
+          <div class="ico">⬇️</div>
+          <h3>1. Get the code</h3>
+          <p>Clone the DynEarthSol repository (with submodules) and follow the build instructions in its <b>README</b>.</p>
+          <div class="codeblock"><span class="c"># clone with submodules</span>
+git clone --recursive \
+  https://github.com/GeoFLAC/DynEarthSol.git
+cd DynEarthSol
+<span class="c"># edit Makefile for your system, then build</span>
+make</div>
+          <div class="files" style="margin-top:14px"><a href="https://github.com/GeoFLAC/DynEarthSol" target="_blank" rel="noopener" style="font-size:.85rem;color:var(--accent);border:1px solid var(--border);padding:6px 14px;border-radius:8px">DynEarthSol on GitHub ↗</a></div>
+        </div>
+        <div class="card">
+          <div class="ico">🧰</div>
+          <h3>2. What you'll need</h3>
+          <p>Make sure these are installed before building:</p>
+          <ul style="list-style:none;margin-top:10px;color:var(--muted);font-size:.95rem">
+            <li style="padding:5px 0">• A C++11 compiler (g++ 4.4+ / clang)</li>
+            <li style="padding:5px 0">• Boost <b>Program_options</b> (1.42+)</li>
+            <li style="padding:5px 0">• Python 3 with <b>NumPy</b></li>
+            <li style="padding:5px 0">• Git (for submodules)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ico">✅</div>
+          <h3>3. Bring it ready</h3>
+          <p>Come with DES <b>already built and running</b> on your laptop. Run one of the examples to confirm it works.</p>
+          <p style="margin-top:12px">Stuck on the build? Email us <b>before</b> the event so we can help in advance: <a href="mailto:slee91@kigam.re.kr?subject=GeoFLAC%2FDES%202026%20%E2%80%94%20DynEarthSol%20build%20help" style="color:var(--accent)">slee91@kigam.re.kr</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== Talks (accepted presentations) ===== -->
   <section id="talks">
     <div class="wrap reveal">
@@ -396,7 +447,7 @@
           <h3>KIGAM</h3>
           <p class="addr">Korea Institute of Geoscience and Mineral Resources<br />124 Gwahak-ro, Yuseong-gu, Daejeon, Republic of Korea</p>
           <ul>
-            <li>🏛️ <span>Earthquake Research Center (Bldg.&nbsp;A2)<br /><b>Quaternary Room · Room 212</b></span></li>
+            <li>🏛️ <span>Earthquake Research Center (Bldg.&nbsp;A2)<br /><b>Quaternary Room (212)</b></span></li>
             <li>🗓️ <span><b>Nov 2–6, 2026</b> &nbsp;(Mon–Fri)</span></li>
             <li>🍽️ <span>Lunch at the KIGAM cafeteria — <b>cash only, ~₩7,000</b></span></li>
             <li>📍 <span><b>In-person only</b> — no remote option</span></li>
@@ -522,8 +573,12 @@
           <p>Not automatically — places are limited by venue capacity. Registration is first-come, first-served, and we will email you to confirm your participation. If we receive more registrations than we can host, seats are allocated as evenly as possible across institutions.</p>
         </details>
         <details>
+          <summary>Do I need to install anything beforehand?</summary>
+          <p>Yes. The tutorials use <b>DynEarthSol (DES)</b>, and the build process is not covered during the workshop. Please build it on your laptop in advance — see <a href="#prepare" style="color:var(--accent)">Before you come</a>. If you run into build problems, email us before the event and we'll help.</p>
+        </details>
+        <details>
           <summary>What should I bring?</summary>
-          <p>A laptop set up for development. Setup guidance will be provided on Day 1 and shared with registered participants beforehand.</p>
+          <p>A laptop with <b>DynEarthSol (DES) already built and running</b>, and a power adapter. Also bring cash for lunch (KIGAM cafeteria, ~₩7,000).</p>
         </details>
       </div>
     </div>
