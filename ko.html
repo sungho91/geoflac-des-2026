@@ -161,6 +161,32 @@
     .day p { color: var(--muted); font-size: .92rem; }
     @media (max-width: 600px) { .day { grid-template-columns: 1fr; gap: 8px; } }
 
+    /* ---------- Detailed program ---------- */
+    .tbc {
+      display: inline-block; font-size: .7rem; font-weight: 700; letter-spacing: .03em;
+      color: var(--muted); border: 1px solid var(--border); border-radius: 999px;
+      padding: 1px 9px; margin-left: 6px; white-space: nowrap; vertical-align: middle;
+    }
+    .prog details {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 2px 22px; margin-bottom: 12px; box-shadow: var(--shadow);
+    }
+    .prog summary {
+      cursor: pointer; padding: 18px 0; font-weight: 700; list-style: none;
+      display: flex; justify-content: space-between; align-items: center; gap: 14px;
+    }
+    .prog summary::-webkit-details-marker { display: none; }
+    .prog summary::after { content: "+"; color: var(--accent); font-size: 1.4rem; line-height: 1; transition: transform .2s; }
+    .prog details[open] summary::after { transform: rotate(45deg); }
+    .prog summary .theme { display: block; margin-top: 3px; color: var(--muted); font-weight: 500; font-size: .84rem; }
+    .prog-wrap { overflow-x: auto; }
+    .prog table { width: 100%; border-collapse: collapse; font-size: .92rem; margin-bottom: 18px; }
+    .prog td { padding: 10px 12px 10px 0; border-top: 1px solid var(--border); vertical-align: top; color: var(--muted); }
+    .prog td:first-child { white-space: nowrap; color: var(--accent); font-weight: 700; font-variant-numeric: tabular-nums; width: 1%; padding-right: 22px; }
+    .prog td b { color: var(--text); font-weight: 600; }
+    .prog .who { display: block; font-size: .85rem; margin-top: 3px; }
+    .prog tr.rest td, .prog tr.rest td:first-child { color: var(--muted); opacity: .6; font-weight: 500; }
+
     .note { font-size: .85rem; color: var(--muted); margin-top: 16px; font-style: italic; }
 
     /* ---------- Venue ---------- */
@@ -214,6 +240,15 @@
     }
     .talk:hover { border-color: var(--accent); transform: translateY(-3px); }
     .talk h3 { font-size: 1.2rem; margin-bottom: 6px; }
+    .talk .day-tag {
+}
+         . qq{      display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .04em;
+}
+         . qq{      color: var(--accent); border: 1px solid var(--border); border-radius: 999px;
+}
+         . qq{      padding: 3px 11px; margin-bottom: 12px;
+}
+         . qq{    }
     .talk .speaker { color: var(--accent); font-size: .9rem; font-weight: 600; margin-bottom: 12px; }
     .talk .speaker .affil { color: var(--muted); font-weight: 400; }
     .talk .abstract { color: var(--muted); font-size: .95rem; }
@@ -321,8 +356,8 @@
         </div>
         <div class="card">
           <div class="ico">🚀</div>
-          <h3>오픈 해커톤</h3>
-          <p>팀을 만들고, 과제를 골라, 결과물을 만들어요. 새 기능, 버그 수정, 도구, 시각화 등 프로젝트를 발전시키는 모든 것.</p>
+          <h3>개발자 미팅 &amp; 해커톤</h3>
+          <p>2026 로드맵을 중심으로 한 개발자 중심의 이틀 — 기능, 버그 수정, 도구, 문서. 모델로 해보고 싶은 것이 있다비 개발자와 연결해 드립니다.</p>
         </div>
         <div class="card">
           <div class="ico">🤝</div>
@@ -386,40 +421,118 @@
     <div class="wrap reveal">
       <div class="section-tag">프로그램</div>
       <h2 class="section-title">3일 워크샵, 2일 해커톤</h2>
-      <p class="section-intro">1–3일차는 튜토리얼과 발표가 있는 실습 워크샵, 4–5일차는 오픈 해커톤입니다. 매일 <b>10:00–17:00</b> 진행되며 점심시간 1시간이 있습니다. 아래 일정은 잠정안이며 행사에 가까워지면 확정됩니다.</p>
+      <p class="section-intro">1–3일차는 튜토리얼과 발표가 함께 진행되는 실습 워크샵입니다. 4–5일차는 개발자 중심의 해커톤 &amp; 개발자 미팅으로, 별도의 발표 세션 없이 공동 작업과 라운드테이블 논의로 진행됩니다. 매일 <b>09:30–17:00</b> 진행되며 12:00부터 점심시간 1시간이 있습니다. 아래 프로그램은 잠정안이며 시간·제목·주제는 변경될 수 있습니다.</p>
 
       <div class="schedule">
         <div class="day">
           <div class="date">월<span>11/2</span></div>
-          <div><h3>워크샵 1일차 — 기초</h3><p>환영, 프로젝트 개요, 간단한 환경 점검, 입문 튜토리얼, 오프닝 발표.</p></div>
+          <div><h3>워크샵 1일차 — 튜토리얼 &amp; 지진 주기</h3><p>환영 인사와 참가자 소개, GeoFLAC·DynEarthSol 개요(계산 가속 포함), 이어서 지진 주기 모델링 발표와 실습 세션.</p></div>
         </div>
         <div class="day">
           <div class="date">화<span>11/3</span></div>
-          <div><h3>워크샵 2일차 — 핵심</h3><p>핵심 모델링 워크플로(입력·출력·첫 모델) 실습 튜토리얼과 발표.</p></div>
+          <div><h3>워크샵 2일차 — 용융체 이동 &amp; 이상유동</h3><p>용융체 이동과 이상유동(two-phase flow) 관련 발표와 튜토리얼. 저녁에는 워크샵 만찬.</p></div>
         </div>
         <div class="day">
           <div class="date">수<span>11/4</span></div>
-          <div><h3>워크샵 3일차 — 심화</h3><p>심화 튜토리얼과 발표. 오후 늦게 해커톤 팀 구성 및 주제 선정.</p></div>
+          <div><h3>워크샵 3일차 — 지표 과정 커플링</h3><p>goSPL 지표 과정 모델과 DynEarthSol의 커플링, 관련 발표, 그리고 해커톤 준비.</p></div>
         </div>
         <div class="day">
           <div class="date">목<span>11/5</span></div>
-          <div><h3>해커톤 1일차 — 제작</h3><p>핵심 개발자들의 멘토링을 받으며 팀별 프로젝트 진행.</p></div>
+          <div><h3>해커톤 1일차 — 개발자 미팅 &amp; 공동 작업</h3><p>코드 로드맵과 Pull Request 가이드라인 논의, 주제·이슈 선정, 이어서 자유로운 공동 작업. 모델로 시도해 보고 싶은 것이 있는 참가자는 개발자와 연결해 함께 진행합니다.</p></div>
         </div>
         <div class="day">
           <div class="date">금<span>11/6</span></div>
-          <div><h3>해커톤 2일차 — 데모</h3><p>마무리 작업, 팀 발표, 시상, 폐회.</p></div>
+          <div><h3>해커톤 2일차 — 공동 작업 &amp; 향후 방향</h3><p>작업 지속과 PR 준비, 공동 리뷰, 그리고 향후 개발 방향과 다음 워크샵에 대한 개발자 논의.</p></div>
         </div>
       </div>
 
-      <div class="card" style="margin-top:28px">
-        <h3 style="margin-bottom:16px">워크샵 하루 일과 (1–3일차)</h3>
-        <div style="display:grid;gap:10px;color:var(--muted);font-size:.95rem">
-          <div><b style="color:var(--accent)">10:00 – 12:00</b> &nbsp; 튜토리얼 (실습)</div>
-          <div><b style="color:var(--accent)">12:00 – 13:00</b> &nbsp; 점심 — KIGAM 구내식당 (현금만, 약 ₩7,000)</div>
-          <div><b style="color:var(--accent)">13:00 – 14:40</b> &nbsp; 발표</div>
-          <div><b style="color:var(--accent)">14:40 – 15:00</b> &nbsp; 휴식</div>
-          <div><b style="color:var(--accent)">15:00 – 17:00</b> &nbsp; 튜토리얼 / 실습</div>
-        </div>
+      <h3 style="margin:44px 0 6px;font-size:1.3rem">상세 프로그램</h3>
+      <p style="color:var(--muted);font-size:.92rem;margin-bottom:20px">각 일자를 눌러 펼쳐 보세요. 튜토리얼 주제는 아직 정해지는 중이며, <span class="tbc">주제 미정</span> 표시가 있는 세션은 행사 전에 확정해 안내합니다.</p>
+
+      <div class="prog">
+        <details open>
+          <summary><span>1일차 · 11/2 (월)<span class="theme">튜토리얼 + 지진 주기</span></span></summary>
+          <div class="prog-wrap"><table>
+            <tr><td>09:30–09:40</td><td><b>환영 인사 및 오리엔테이션</b><span class="who">이성호 (Sungho Lee)</span></td></tr>
+            <tr><td>09:40–09:50</td><td><b>GeoFLAC/DynEarthSol 팀 소개</b><span class="who">개발팀</span></td></tr>
+            <tr><td>09:50–10:05</td><td><b>참가자 소개</b><span class="who">전체</span></td></tr>
+            <tr><td>10:05–10:45</td><td><b>개요 · GeoFLAC</b><span class="who">Luc Lavier</span></td></tr>
+            <tr class="rest"><td>10:45–11:00</td><td>휴식</td></tr>
+            <tr><td>11:00–11:40</td><td><b>개요 · DynEarthSol (계산 가속 포함)</b><span class="who">Eunseo Choi, Chase Shyu, 이성호</span></td></tr>
+            <tr><td>11:40–12:00</td><td><b>질의응답 및 토론</b><span class="who">전체</span></td></tr>
+            <tr class="rest"><td>12:00–13:00</td><td>점심 — KIGAM 구내식당</td></tr>
+            <tr><td>13:00–13:40</td><td><b>발표 · 지진 주기 모델의 역사와 현재</b><span class="who">So Ozawa</span></td></tr>
+            <tr><td>13:40–15:00</td><td><b>발표 · 단층대 두께와 지진 주기</b><span class="who">이성호 (Sungho Lee)</span></td></tr>
+            <tr class="rest"><td>15:00–15:15</td><td>휴식</td></tr>
+            <tr><td>15:15–16:40</td><td><b>튜토리얼 / 실습 세션</b><span class="tbc">주제 미정</span><span class="who">Eunseo Choi 및 DynEarthSol 개발자</span></td></tr>
+            <tr><td>16:40–17:00</td><td><b>1일차 마무리</b><span class="who">전체</span></td></tr>
+          </table></div>
+        </details>
+
+        <details>
+          <summary><span>2일차 · 11/3 (화)<span class="theme">튜토리얼 + 용융체 이동·이상유동</span></span></summary>
+          <div class="prog-wrap"><table>
+            <tr><td>09:30–10:45</td><td><b>튜토리얼 1</b><span class="tbc">주제 미정</span><span class="who">Eunseo Choi, Chase Shyu</span></td></tr>
+            <tr class="rest"><td>10:45–11:00</td><td>휴식</td></tr>
+            <tr><td>11:00–11:40</td><td><b>발표 · 이상유동과 용융체 이동</b><span class="who">Chase Shyu</span></td></tr>
+            <tr><td>11:40–12:00</td><td><b>질의응답 및 토론</b><span class="who">전체</span></td></tr>
+            <tr class="rest"><td>12:00–13:00</td><td>점심 — KIGAM 구내식당</td></tr>
+            <tr><td>13:00–13:40</td><td><b>발표 · 대륙 열개와 암석권 신장</b><span class="who">Luc Lavier</span></td></tr>
+            <tr><td>13:40–14:55</td><td><b>튜토리얼 2</b><span class="tbc">주제 미정</span><span class="who">Eunseo Choi, Chase Shyu</span></td></tr>
+            <tr class="rest"><td>14:55–15:10</td><td>휴식</td></tr>
+            <tr><td>15:10–16:40</td><td><b>튜토리얼 / 실습 세션</b><span class="tbc">주제 미정</span><span class="who">Eunseo Choi</span></td></tr>
+            <tr><td>16:40–17:00</td><td><b>2일차 마무리</b><span class="who">전체</span></td></tr>
+            <tr><td>18:30–20:30</td><td><b>워크샵 만찬</b><span class="tbc">장소 확정 전</span><span class="who">전체</span></td></tr>
+          </table></div>
+        </details>
+
+        <details>
+          <summary><span>3일차 · 11/4 (수)<span class="theme">튜토리얼 + 지표 과정 커플링</span></span></summary>
+          <div class="prog-wrap"><table>
+            <tr><td>09:30–10:40</td><td><b>튜토리얼 1</b><span class="tbc">주제 미정</span><span class="who">Eunseo Choi</span></td></tr>
+            <tr class="rest"><td>10:40–10:55</td><td>휴식</td></tr>
+            <tr><td>10:55–11:35</td><td><b>발표 · ASPECT–FastScape 커플링</b><span class="who">금재윤 (Jaeyoon Keum)</span></td></tr>
+            <tr><td>11:35–12:00</td><td><b>질의응답 및 토론</b><span class="who">전체</span></td></tr>
+            <tr class="rest"><td>12:00–13:00</td><td>점심 — KIGAM 구내식당</td></tr>
+            <tr><td>13:00–13:40</td><td><b>발표 · 열연대학과 충상단층 — 대만 사례</b><span class="who">Eh Tan</span></td></tr>
+            <tr><td>13:40–14:20</td><td><b>튜토리얼 2</b><span class="tbc">주제 미정</span><span class="who">Eunseo Choi</span></td></tr>
+            <tr><td>14:20–15:20</td><td><b>튜토리얼 3</b><span class="tbc">주제 미정</span><span class="who">Eunseo Choi</span></td></tr>
+            <tr class="rest"><td>15:20–15:35</td><td>휴식</td></tr>
+            <tr><td>15:35–16:40</td><td><b>튜토리얼 / 실습 세션</b><span class="tbc">주제 미정</span><span class="who">Eunseo Choi</span></td></tr>
+            <tr><td>16:40–17:00</td><td><b>워크샵 마무리 및 해커톤 준비</b><span class="who">전체</span></td></tr>
+          </table></div>
+        </details>
+
+        <details>
+          <summary><span>4일차 · 11/5 (목)<span class="theme">해커톤 — 발표 세션 없음</span></span></summary>
+          <div class="prog-wrap"><table>
+            <tr><td>09:30–10:00</td><td><b>해커톤 오리엔테이션</b><span class="who">이성호 (Sungho Lee)</span></td></tr>
+            <tr><td>10:00–11:15</td><td><b>코드 로드맵 및 Pull Request 가이드라인</b><span class="who">라운드테이블 — 전체</span></td></tr>
+            <tr class="rest"><td>11:15–11:30</td><td>휴식</td></tr>
+            <tr><td>11:30–12:00</td><td><b>팀 주제 및 이슈 선정</b><span class="who">전체</span></td></tr>
+            <tr class="rest"><td>12:00–13:00</td><td>점심 — KIGAM 구내식당</td></tr>
+            <tr><td>13:00–14:30</td><td><b>팀 구성 및 공동 작업</b><span class="who">팀별</span></td></tr>
+            <tr class="rest"><td>14:30–14:45</td><td>휴식</td></tr>
+            <tr><td>14:45–16:40</td><td><b>자유 코딩·테스트·문서화</b><span class="who">팀별</span></td></tr>
+            <tr><td>16:40–17:00</td><td><b>팀 점검 및 다음 단계</b><span class="who">전체</span></td></tr>
+          </table></div>
+        </details>
+
+        <details>
+          <summary><span>5일차 · 11/6 (금)<span class="theme">해커톤 + 향후 계획</span></span></summary>
+          <div class="prog-wrap"><table>
+            <tr><td>09:30–10:00</td><td><b>아침 점검 및 팀별 계획 공유</b><span class="who">전체</span></td></tr>
+            <tr><td>10:00–11:15</td><td><b>자유 공동 작업</b><span class="who">팀별</span></td></tr>
+            <tr class="rest"><td>11:15–11:30</td><td>휴식</td></tr>
+            <tr><td>11:30–12:00</td><td><b>자유 공동 작업</b><span class="who">팀별</span></td></tr>
+            <tr class="rest"><td>12:00–13:00</td><td>점심 — KIGAM 구내식당</td></tr>
+            <tr><td>13:00–15:00</td><td><b>자유 작업 및 PR 준비</b><span class="who">팀별</span></td></tr>
+            <tr class="rest"><td>15:00–15:15</td><td>휴식</td></tr>
+            <tr><td>15:15–16:00</td><td><b>공동 PR 리뷰 및 문서 점검</b><span class="who">팀별</span></td></tr>
+            <tr><td>16:00–16:40</td><td><b>향후 코드 개발 및 워크샵 계획 논의</b><span class="who">라운드테이블 — 전체</span></td></tr>
+            <tr><td>16:40–17:00</td><td><b>폐회</b><span class="who">이성호 (Sungho Lee)</span></td></tr>
+          </table></div>
+        </details>
       </div>
 
       <p class="note">* 일정은 변경될 수 있습니다. 상세 시간은 등록 참가자에게 공유됩니다. 점심은 현금을 준비해 주세요.</p>
@@ -476,17 +589,17 @@ make</div>
   <section id="hackathon" style="background:var(--bg-soft)">
     <div class="wrap reveal">
       <div class="section-tag">해커톤</div>
-      <h2 class="section-title">해커톤 잠정 아젠다</h2>
-      <p class="section-intro">2일간의 해커톤(4–5일차)은 프로젝트의 <a href="https://github.com/GeoFLAC/DynEarthSol/issues/43" target="_blank" rel="noopener" style="color:var(--accent)">2026 개발 로드맵</a>을 바탕으로 DynEarthSol을 함께 발전시키는 오픈 스프린트입니다. 아래 계획은 잠정안이며 참가자들의 관심에 따라 발전합니다.</p>
+      <h2 class="section-title">개발자 미팅 &amp; 오픈 해커톤</h2>
+      <p class="section-intro">4–5일차는 <b>개발자 중심</b>으로 진행됩니다. 참가자에게 프로젝트 제안서를 받아 팀을 꾸리는 방식 대신, 프로젝트의 <a href="https://github.com/GeoFLAC/DynEarthSol/issues/43" target="_blank" rel="noopener" style="color:var(--accent)">2026 개발 로드맵</a>을 중심으로 함께 작업하는 오픈 스프린트와, 기여 워크플로·향후 방향을 논의하는 개발자 미팅으로 운영합니다. 워크샵 참가자도 얼마든지 함께해 주세요 — 모델로 시도해 보고 싶은 것이 있다면 오시면 그 부분을 담당하는 개발자와 연결해 드립니다. 제안서도, 팀도, 발표도 필요 없습니다.</p>
 
       <div class="schedule" style="margin-bottom:40px">
         <div class="day">
           <div class="date">목<span>11/5</span></div>
-          <div><h3>1일차 — 킥오프 &amp; 제작</h3><p>로드맵 간단 소개, 트랙별 팀 구성, GitHub 기여 워크플로 &amp; push 정책에 대한 커뮤니티 논의 — 이후 팀별 제작 시작.</p></div>
+          <div><h3>1일차 — 로드맵 &amp; 공동 작업</h3><p>오리엔테이션 후, 코드 로드맵과 GitHub 기여 워크플로(Pull Request·리뷰·push 정책)를 함께 논의합니다. 점심 이후 주제와 이슈를 정하고 자유로운 공동 작업을 시작합니다.</p></div>
         </div>
         <div class="day">
           <div class="date">금<span>11/6</span></div>
-          <div><h3>2일차 — 제작 &amp; 데모</h3><p>멘토 지원하에 작업 지속, 로드맵 &amp; 향후 방향 논의, 팀 데모, 마무리 및 다음 단계.</p></div>
+          <div><h3>2일차 — 공동 작업 &amp; 향후 방향</h3><p>개발자들과 함께 작업을 이어가며 PR을 준비하고, 공동 PR·문서 리뷰를 진행합니다. 마지막으로 향후 개발 방향과 다음 워크샵 계획을 라운드테이블로 논의합니다.</p></div>
         </div>
       </div>
 
@@ -516,8 +629,8 @@ make</div>
         </div>
         <div class="card">
           <div class="ico">🤝</div>
-          <h3>진행 방식</h3>
-          <p>아이디어를 가져오거나 당일 트랙에 합류하세요. 팀 규모는 자유 — 1인도 환영. 핵심 개발자들이 멘토로 함께합니다. 목표는 실제로 동작하는 기여와 다음 단계를 위한 공동 계획입니다.</p>
+          <h3>궁금한 것을 들고 오세요 — 개발자와 연결해 드립니다</h3>
+          <p>올해 스프린트는 개발자들이 중심이 되어 진행하므로, 미리 준비할 것도 발표할 것도 없습니다. 워크샵에서 떠오른 것이 있다면 — 돌려보고 싶은 셋업, 있었으면 하는 기능, 재현이 안 되는 결과 등 — 4일차에 들고 오세요. 그 부분을 담당하는 개발자와 연결해 함께 살펴봅니다.</p>
         </div>
       </div>
 
@@ -532,8 +645,7 @@ make</div>
     <div class="wrap reveal">
       <div class="section-tag">프로그램</div>
       <h2 class="section-title">발표</h2>
-      <p class="section-intro">채택된 발표 목록입니다. 자료가 있으면 함께 링크됩니다. 발표하고 싶으신가요? 아래 <a href="#call" style="color:var(--accent)">발표 신청</a>을 확인하세요.</p>
-
+      <p class="section-intro">현재까지 확정된 발표 목록입니다. 상세 초록이 표시되지 않은 발표는 제목·내용이 잠정안이며, 발표 자료는 준비되는 대로 함께 링크됩니다. 발표하고 싶으신가요? 아래 <a href="#call" style="color:var(--accent)">발표 신청</a>을 확인하세요.</p>
       <div id="talks-list" class="talks-list"></div>
       <p id="talks-empty" class="note" style="display:none">아직 공개된 발표가 없습니다 — 곧 다시 확인하시거나 아래에서 신청해 주세요.</p>
       <noscript><p class="note">발표 목록을 보려면 JavaScript를 켜주세요.</p></noscript>
@@ -755,8 +867,8 @@ make</div>
           <p>아니요. KIGAM 현장에서만 진행되는 오프라인 행사입니다.</p>
         </details>
         <details>
-          <summary>해커톤에 팀이 꼭 있어야 하나요?</summary>
-          <p>아니요. 혼자 와서 킥오프 세션에서 팀을 만들거나 합류할 수 있습니다. 기존 팀도 환영합니다.</p>
+          <summary>해커톤에 팀이나 제안서가 꼭 있어야 하나요?</summary>
+          <p>아니요. 4–5일차는 개발자 중심으로, 2026 로드맵을 함께 진행하는 오픈 스프린트와 개발자 미팅으로 운영합니다. 제안서·팀·발표 모두 필요 없습니다. 워크샵 참가자도 얼마든지 함께해 주세요 — 모델로 시도해 보고 싶은 것이 있다면 그 부분을 담당하는 개발자와 연결해 드립니다.</p>
         </details>
         <details>
           <summary>등록하면 자리가 확정되나요?</summary>
@@ -790,14 +902,62 @@ make</div>
   <script>
     const TALKS = [
       {
-        title: "Progress in LagHOST",
+        day: "1일차 · 11/2 (월)",
+        title: "지진 주기 모델: 역사와 현재",
+        speaker: "So Ozawa",
+        affiliation: "Earthquake Research Institute (ERI), University of Tokyo",
+        abstract: "지진 주기 모델링이 어떻게 발전해 왔고 현재 어디까지 와 있는지 정리하는 리뷰 발표입니다. 상세 초록은 추후 공지됩니다.",
+        files: []
+      },
+      {
+        day: "1일차 · 11/2 (월)",
+        title: "단층대 두께가 파열 이전 변형 분배와 지진 주기를 조절한다",
         speaker: "이성호 (Sungho Lee)",
-        affiliation: "KIGAM",
-        abstract: "LagHOST (Lagrangian High-order multiphysics Solver for Tightly Coupled Solid Earth Systems) — 상세 초록은 추후 공지됩니다.",
+        affiliation: "Earthquake Research Center, KIGAM",
+        abstract: "단층대는 국지적 미끌림과 분산 변형이 함께 일어나는 유한한 부피이지만, 대부분의 지진 주기 모델은 마찰을 두께가 0인 면 위에 둡니다. 이 연구에서는 2차원 rate-and-state 탄소성 시뮬레이션을 이용해, 마찰 물성을 고정한 상태에서도 활동적으로 변형하는 부피의 두께가 지진 주기를 재편하는지 살펴봅니다. 속도약화(velocity-weakening) 대역의 두께를 200 m에서 3200 m까지 넓히면, 파열 이전의 소성 변형이 주 미끌림대(PSZ)에서 대역 내부로 옮겨갑니다. 파열 준비는 단층대 중심부에서 시작해 중심부와 양쪽 경계를 잇는 이차 전단대를 따라 성장하고, 그 이후에야 PSZ에서 빠른 미끌림으로 국지화됩니다. 두꺼운 대역일수록 준비 과정이 더 넓은 내부에 분산되지만 국지화된 변형대의 폭은 그에 비례해 넓어지지 않으며, 반대로 얇은 대역은 PSZ에 가속된 지진간 크리프를 더 많이 남깁니다. 준비 변형이 더 분산될수록 재발 주기가 짧아지고, 이벤트당 미끌림량과 최대 미끌림 속도, 국지 전단응력 강하가 모두 작아집니다. 또한 활동 두께는 지진–크리프 전이의 위치를 이동시키고 팽창(dilation)이 변형을 확산시키는 방식도 바꿉니다. 즉 단층대 두께는 국지적 마찰 물성과는 구별되는, 지진 주기에 대한 구조적 조절 인자입니다.",
+        files: []
+      },
+      {
+        day: "2일차 · 11/3 (화)",
+        title: "DynEarthSol의 이상유동과 용융체 이동",
+        speaker: "Chase Shyu",
+        affiliation: "Jackson School of Geosciences, University of Texas at Austin",
+        abstract: "DynEarthSol의 이상유동(two-phase flow) 정식화를 이용한 용융체 이동 모델링. 상세 초록은 추후 공지됩니다.",
+        files: []
+      },
+      {
+        day: "2일차 · 11/3 (화)",
+        title: "대륙 열개와 암석권 신장",
+        speaker: "Luc Lavier",
+        affiliation: "Jackson School of Geosciences, University of Texas at Austin",
+        abstract: "GeoFLAC 소개와 함께, 대륙 열개(rifting) 및 암석권 신장에 관한 기존·진행 중인 연구를 돌아봅니다. 상세 초록은 추후 공지됩니다.",
+        files: []
+      },
+      {
+        day: "3일차 · 11/4 (수)",
+        title: "ASPECT–FastScape 커플링: 지구조 운동과 지표 과정",
+        speaker: "금재윤 (Jaeyoon Keum)",
+        affiliation: "Department of Geophysics, Kangwon National University",
+        abstract: "ASPECT의 맨틀·암석권 변형과 FastScape의 지형 진화를 연결하는 연구. 상세 초록은 추후 공지됩니다.",
+        files: []
+      },
+      {
+        day: "3일차 · 11/4 (수)",
+        title: "열연대학과 충상단층계: 대만 사례",
+        speaker: "Eh Tan",
+        affiliation: "Institute of Earth Sciences, Academia Sinica",
+        abstract: "열연대학(thermochronology) 자료를 충상단층대 모델에 접목하며, 대만을 사례로 다룹니다. 상세 초록은 추후 공지됩니다.",
+        files: []
+      },
+      {
+        day: "3일차 · 11/4 (수)",
+        title: "DynEarthSol과 goSPL의 커플링: 지구조 운동과 지형 진화",
+        speaker: "Eunseo Choi",
+        affiliation: "Center for Earthquake Research and Information (CERI), University of Memphis",
+        abstract: "지구조 모델과 지표 과정 모델을 왜 결합해야 하는지, goSPL의 기본 원리는 무엇인지, 그리고 DynEarthSol에 구현된 커플링 방식은 어떤 것인지 다룹니다. 상세 초록은 추후 공지됩니다.",
         files: []
       },
     ];
-
     (function renderTalks() {
       const list = document.getElementById('talks-list');
       const empty = document.getElementById('talks-empty');
@@ -805,7 +965,8 @@ make</div>
       const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
       list.innerHTML = TALKS.map(t => `
         <div class="talk">
-          <h3>${esc(t.title)}</h3>
+          ${t.day ? `<div class="day-tag">${esc(t.day)}</div>` : ''}
+          <h3>${esc(t.title)}${t.tbc ? `<span class="tbc">확정 전</span>` : ''}</h3>
           <div class="speaker">${esc(t.speaker)}${t.affiliation ? ` <span class="affil">· ${esc(t.affiliation)}</span>` : ''}</div>
           <p class="abstract">${esc(t.abstract)}</p>
           ${(t.files && t.files.length) ? `<div class="files">${t.files.map(f => `<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.label)} ↗</a>`).join('')}</div>` : ''}

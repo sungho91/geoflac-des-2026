@@ -13,3 +13,7 @@ Figures/
 Thumbs.db
 .DS_Store
 .vscode/
+
+# Program source & manuscripts — keep out of the public repo
+GeoFLAC_DES_2026_Workshop_Program.xlsx
+*.docx

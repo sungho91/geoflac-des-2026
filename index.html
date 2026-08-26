@@ -168,6 +168,32 @@
     .day p { color: var(--muted); font-size: .92rem; }
     @media (max-width: 600px) { .day { grid-template-columns: 1fr; gap: 8px; } }
 
+    /* ---------- Detailed program ---------- */
+    .tbc {
+      display: inline-block; font-size: .7rem; font-weight: 700; letter-spacing: .03em;
+      color: var(--muted); border: 1px solid var(--border); border-radius: 999px;
+      padding: 1px 9px; margin-left: 6px; white-space: nowrap; vertical-align: middle;
+    }
+    .prog details {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 2px 22px; margin-bottom: 12px; box-shadow: var(--shadow);
+    }
+    .prog summary {
+      cursor: pointer; padding: 18px 0; font-weight: 700; list-style: none;
+      display: flex; justify-content: space-between; align-items: center; gap: 14px;
+    }
+    .prog summary::-webkit-details-marker { display: none; }
+    .prog summary::after { content: "+"; color: var(--accent); font-size: 1.4rem; line-height: 1; transition: transform .2s; }
+    .prog details[open] summary::after { transform: rotate(45deg); }
+    .prog summary .theme { display: block; margin-top: 3px; color: var(--muted); font-weight: 500; font-size: .84rem; }
+    .prog-wrap { overflow-x: auto; }
+    .prog table { width: 100%; border-collapse: collapse; font-size: .92rem; margin-bottom: 18px; }
+    .prog td { padding: 10px 12px 10px 0; border-top: 1px solid var(--border); vertical-align: top; color: var(--muted); }
+    .prog td:first-child { white-space: nowrap; color: var(--accent); font-weight: 700; font-variant-numeric: tabular-nums; width: 1%; padding-right: 22px; }
+    .prog td b { color: var(--text); font-weight: 600; }
+    .prog .who { display: block; font-size: .85rem; margin-top: 3px; }
+    .prog tr.rest td, .prog tr.rest td:first-child { color: var(--muted); opacity: .6; font-weight: 500; }
+
     .note { font-size: .85rem; color: var(--muted); margin-top: 16px; font-style: italic; }
 
     /* ---------- Venue ---------- */
@@ -221,6 +247,15 @@
     }
     .talk:hover { border-color: var(--accent); transform: translateY(-3px); }
     .talk h3 { font-size: 1.2rem; margin-bottom: 6px; }
+    .talk .day-tag {
+}
+         . qq{      display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .04em;
+}
+         . qq{      color: var(--accent); border: 1px solid var(--border); border-radius: 999px;
+}
+         . qq{      padding: 3px 11px; margin-bottom: 12px;
+}
+         . qq{    }
     .talk .speaker { color: var(--accent); font-size: .9rem; font-weight: 600; margin-bottom: 12px; }
     .talk .speaker .affil { color: var(--muted); font-weight: 400; }
     .talk .abstract { color: var(--muted); font-size: .95rem; }
@@ -329,8 +364,8 @@
         </div>
         <div class="card">
           <div class="ico">🚀</div>
-          <h3>Open Hackathon</h3>
-          <p>Form a team, pick a challenge, and ship. New features, bug fixes, tooling, visualizations — anything that moves the project forward.</p>
+          <h3>Developer Meeting &amp; Hackathon</h3>
+          <p>Two developer-centred days on the 2026 roadmap — features, fixes, tooling, docs. Bring a modeling question and we will pair you with a developer.</p>
         </div>
         <div class="card">
           <div class="ico">🤝</div>
@@ -394,40 +429,118 @@
     <div class="wrap reveal">
       <div class="section-tag">Program</div>
       <h2 class="section-title">Three days of workshops, two days of hacking</h2>
-      <p class="section-intro">Days 1–3 are hands-on workshops with tutorials and talks; Days 4–5 are an open hackathon. Sessions run <b>10:00–17:00</b> daily, with a one-hour lunch break. The schedule below is tentative and will be finalized closer to the event.</p>
+      <p class="section-intro">Days 1–3 are hands-on workshops pairing tutorials with talks. Days 4–5 are a developer-centred hackathon and developer meeting — open collaborative work and roundtable discussion, with no presentation sessions. Sessions run <b>09:30–17:00</b> daily, with a one-hour lunch break at 12:00. The program below is tentative — times, titles and topics may still change.</p>
 
       <div class="schedule">
         <div class="day">
           <div class="date">Mon<span>Nov 2</span></div>
-          <div><h3>Workshop Day 1 — Foundations</h3><p>Welcome, project overview, quick environment check, intro tutorials, and opening talks.</p></div>
+          <div><h3>Workshop Day 1 — Tutorials &amp; the earthquake cycle</h3><p>Welcome and introductions, GeoFLAC and DynEarthSol overviews — including computational acceleration — then talks and a hands-on block on earthquake-cycle modeling.</p></div>
         </div>
         <div class="day">
           <div class="date">Tue<span>Nov 3</span></div>
-          <div><h3>Workshop Day 2 — Core</h3><p>Hands-on tutorials on core modeling workflows (inputs, outputs, first models), plus talks.</p></div>
+          <div><h3>Workshop Day 2 — Melt migration &amp; two-phase flow</h3><p>Talks and tutorials on melt migration and two-phase flow. Workshop banquet in the evening.</p></div>
         </div>
         <div class="day">
           <div class="date">Wed<span>Nov 4</span></div>
-          <div><h3>Workshop Day 3 — Advanced</h3><p>Advanced tutorials and talks. Hackathon team formation and challenge selection in the late afternoon.</p></div>
+          <div><h3>Workshop Day 3 — Surface coupling</h3><p>Coupling DynEarthSol to surface-process modeling with goSPL, related talks, and hackathon preparation.</p></div>
         </div>
         <div class="day">
           <div class="date">Thu<span>Nov 5</span></div>
-          <div><h3>Hackathon Day 1 — Build</h3><p>Teams work on their projects with mentor support from core developers.</p></div>
+          <div><h3>Hackathon Day 1 — Developer meeting &amp; open work</h3><p>Code roadmap and pull-request guidelines, topic and issue selection, then open collaborative work. Workshop participants with something they want to try in the model are paired with a developer.</p></div>
         </div>
         <div class="day">
           <div class="date">Fri<span>Nov 6</span></div>
-          <div><h3>Hackathon Day 2 — Demos</h3><p>Final hacking, team presentations, awards, and closing.</p></div>
+          <div><h3>Hackathon Day 2 — Open work &amp; the road ahead</h3><p>Continued work and PR preparation, collaborative review, and a developer discussion of future development and the next workshop.</p></div>
         </div>
       </div>
 
-      <div class="card" style="margin-top:28px">
-        <h3 style="margin-bottom:16px">A typical workshop day (Days 1–3)</h3>
-        <div style="display:grid;gap:10px;color:var(--muted);font-size:.95rem">
-          <div><b style="color:var(--accent)">10:00 – 12:00</b> &nbsp; Tutorial (hands-on)</div>
-          <div><b style="color:var(--accent)">12:00 – 13:00</b> &nbsp; Lunch — KIGAM cafeteria (cash only, ~₩7,000)</div>
-          <div><b style="color:var(--accent)">13:00 – 14:40</b> &nbsp; Talks</div>
-          <div><b style="color:var(--accent)">14:40 – 15:00</b> &nbsp; Coffee break</div>
-          <div><b style="color:var(--accent)">15:00 – 17:00</b> &nbsp; Tutorial / hands-on</div>
-        </div>
+      <h3 style="margin:44px 0 6px;font-size:1.3rem">Detailed program</h3>
+      <p style="color:var(--muted);font-size:.92rem;margin-bottom:20px">Click a day to expand. Tutorial topics are still being decided — sessions marked <span class="tbc">topic TBA</span> will be announced before the event.</p>
+
+      <div class="prog">
+        <details open>
+          <summary><span>Day 1 · Mon, Nov 2<span class="theme">Tutorials + earthquake cycle</span></span></summary>
+          <div class="prog-wrap"><table>
+            <tr><td>09:30–09:40</td><td><b>Welcome and orientation</b><span class="who">Sungho Lee</span></td></tr>
+            <tr><td>09:40–09:50</td><td><b>Meet the GeoFLAC/DynEarthSol team</b><span class="who">Development team</span></td></tr>
+            <tr><td>09:50–10:05</td><td><b>Participant introductions</b><span class="who">Everyone</span></td></tr>
+            <tr><td>10:05–10:45</td><td><b>Overview · GeoFLAC</b><span class="who">Luc Lavier</span></td></tr>
+            <tr class="rest"><td>10:45–11:00</td><td>Coffee break</td></tr>
+            <tr><td>11:00–11:40</td><td><b>Overview · DynEarthSol, incl. computational acceleration</b><span class="who">Eunseo Choi, Chase Shyu &amp; Sungho Lee</span></td></tr>
+            <tr><td>11:40–12:00</td><td><b>Questions and discussion</b><span class="who">Everyone</span></td></tr>
+            <tr class="rest"><td>12:00–13:00</td><td>Lunch — KIGAM cafeteria</td></tr>
+            <tr><td>13:00–13:40</td><td><b>Talk · Earthquake-cycle models: history and current state</b><span class="who">So Ozawa</span></td></tr>
+            <tr><td>13:40–15:00</td><td><b>Talk · Fault-zone thickness and the earthquake cycle</b><span class="who">Sungho Lee</span></td></tr>
+            <tr class="rest"><td>15:00–15:15</td><td>Coffee break</td></tr>
+            <tr><td>15:15–16:40</td><td><b>Tutorial / hands-on session</b><span class="tbc">topic TBA</span><span class="who">Eunseo Choi &amp; DynEarthSol developers</span></td></tr>
+            <tr><td>16:40–17:00</td><td><b>Day 1 wrap-up</b><span class="who">Everyone</span></td></tr>
+          </table></div>
+        </details>
+
+        <details>
+          <summary><span>Day 2 · Tue, Nov 3<span class="theme">Tutorials + melt migration / two-phase flow</span></span></summary>
+          <div class="prog-wrap"><table>
+            <tr><td>09:30–10:45</td><td><b>Tutorial 1</b><span class="tbc">topic TBA</span><span class="who">Eunseo Choi &amp; Chase Shyu</span></td></tr>
+            <tr class="rest"><td>10:45–11:00</td><td>Coffee break</td></tr>
+            <tr><td>11:00–11:40</td><td><b>Talk · Two-phase flow and melt migration</b><span class="who">Chase Shyu</span></td></tr>
+            <tr><td>11:40–12:00</td><td><b>Questions and discussion</b><span class="who">Everyone</span></td></tr>
+            <tr class="rest"><td>12:00–13:00</td><td>Lunch — KIGAM cafeteria</td></tr>
+            <tr><td>13:00–13:40</td><td><b>Talk · Continental rifting and lithospheric extension</b><span class="who">Luc Lavier</span></td></tr>
+            <tr><td>13:40–14:55</td><td><b>Tutorial 2</b><span class="tbc">topic TBA</span><span class="who">Eunseo Choi &amp; Chase Shyu</span></td></tr>
+            <tr class="rest"><td>14:55–15:10</td><td>Coffee break</td></tr>
+            <tr><td>15:10–16:40</td><td><b>Tutorial / hands-on session</b><span class="tbc">topic TBA</span><span class="who">Eunseo Choi</span></td></tr>
+            <tr><td>16:40–17:00</td><td><b>Day 2 wrap-up</b><span class="who">Everyone</span></td></tr>
+            <tr><td>18:30–20:30</td><td><b>Workshop banquet</b><span class="tbc">venue to be confirmed</span><span class="who">Everyone</span></td></tr>
+          </table></div>
+        </details>
+
+        <details>
+          <summary><span>Day 3 · Wed, Nov 4<span class="theme">Tutorials + surface coupling</span></span></summary>
+          <div class="prog-wrap"><table>
+            <tr><td>09:30–10:40</td><td><b>Tutorial 1</b><span class="tbc">topic TBA</span><span class="who">Eunseo Choi</span></td></tr>
+            <tr class="rest"><td>10:40–10:55</td><td>Coffee break</td></tr>
+            <tr><td>10:55–11:35</td><td><b>Talk · Coupling ASPECT and FastScape</b><span class="who">Jaeyoon Keum</span></td></tr>
+            <tr><td>11:35–12:00</td><td><b>Questions and discussion</b><span class="who">Everyone</span></td></tr>
+            <tr class="rest"><td>12:00–13:00</td><td>Lunch — KIGAM cafeteria</td></tr>
+            <tr><td>13:00–13:40</td><td><b>Talk · Thermochronology and thrust systems — the Taiwan case</b><span class="who">Eh Tan</span></td></tr>
+            <tr><td>13:40–14:20</td><td><b>Tutorial 2</b><span class="tbc">topic TBA</span><span class="who">Eunseo Choi</span></td></tr>
+            <tr><td>14:20–15:20</td><td><b>Tutorial 3</b><span class="tbc">topic TBA</span><span class="who">Eunseo Choi</span></td></tr>
+            <tr class="rest"><td>15:20–15:35</td><td>Coffee break</td></tr>
+            <tr><td>15:35–16:40</td><td><b>Tutorial / hands-on session</b><span class="tbc">topic TBA</span><span class="who">Eunseo Choi</span></td></tr>
+            <tr><td>16:40–17:00</td><td><b>Workshop wrap-up and hackathon preparation</b><span class="who">Everyone</span></td></tr>
+          </table></div>
+        </details>
+
+        <details>
+          <summary><span>Day 4 · Thu, Nov 5<span class="theme">Hackathon — no presentation sessions</span></span></summary>
+          <div class="prog-wrap"><table>
+            <tr><td>09:30–10:00</td><td><b>Hackathon orientation</b><span class="who">Sungho Lee</span></td></tr>
+            <tr><td>10:00–11:15</td><td><b>Code roadmap and pull-request guidelines</b><span class="who">Roundtable — everyone</span></td></tr>
+            <tr class="rest"><td>11:15–11:30</td><td>Coffee break</td></tr>
+            <tr><td>11:30–12:00</td><td><b>Team topics and issue selection</b><span class="who">Everyone</span></td></tr>
+            <tr class="rest"><td>12:00–13:00</td><td>Lunch — KIGAM cafeteria</td></tr>
+            <tr><td>13:00–14:30</td><td><b>Team formation and collaborative work</b><span class="who">Teams</span></td></tr>
+            <tr class="rest"><td>14:30–14:45</td><td>Coffee break</td></tr>
+            <tr><td>14:45–16:40</td><td><b>Open coding, testing and documentation</b><span class="who">Teams</span></td></tr>
+            <tr><td>16:40–17:00</td><td><b>Team check-in and next steps</b><span class="who">Everyone</span></td></tr>
+          </table></div>
+        </details>
+
+        <details>
+          <summary><span>Day 5 · Fri, Nov 6<span class="theme">Hackathon + future planning</span></span></summary>
+          <div class="prog-wrap"><table>
+            <tr><td>09:30–10:00</td><td><b>Morning sync and team plans</b><span class="who">Everyone</span></td></tr>
+            <tr><td>10:00–11:15</td><td><b>Open collaborative work</b><span class="who">Teams</span></td></tr>
+            <tr class="rest"><td>11:15–11:30</td><td>Coffee break</td></tr>
+            <tr><td>11:30–12:00</td><td><b>Open collaborative work</b><span class="who">Teams</span></td></tr>
+            <tr class="rest"><td>12:00–13:00</td><td>Lunch — KIGAM cafeteria</td></tr>
+            <tr><td>13:00–15:00</td><td><b>Open work and PR preparation</b><span class="who">Teams</span></td></tr>
+            <tr class="rest"><td>15:00–15:15</td><td>Coffee break</td></tr>
+            <tr><td>15:15–16:00</td><td><b>Collaborative PR review and documentation check</b><span class="who">Teams</span></td></tr>
+            <tr><td>16:00–16:40</td><td><b>Future code development and workshop planning</b><span class="who">Roundtable — everyone</span></td></tr>
+            <tr><td>16:40–17:00</td><td><b>Closing</b><span class="who">Sungho Lee</span></td></tr>
+          </table></div>
+        </details>
       </div>
 
       <p class="note">* Schedule subject to change. Detailed times will be shared with registered participants. Please bring cash for lunch.</p>
@@ -484,17 +597,17 @@ make</div>
   <section id="hackathon" style="background:var(--bg-soft)">
     <div class="wrap reveal">
       <div class="section-tag">Hackathon</div>
-      <h2 class="section-title">Tentative hackathon agenda</h2>
-      <p class="section-intro">The two-day hackathon (Days 4–5) is an open, hands-on sprint to push DynEarthSol forward, guided by the project's <a href="https://github.com/GeoFLAC/DynEarthSol/issues/43" target="_blank" rel="noopener" style="color:var(--accent)">2026 development roadmap</a>. The plan below is tentative and will evolve with participants' interests.</p>
+      <h2 class="section-title">Developer meeting &amp; open hackathon</h2>
+      <p class="section-intro">Days 4–5 are <b>developer-centred</b>. Instead of a call for team proposals, we run an open working sprint around the project's <a href="https://github.com/GeoFLAC/DynEarthSol/issues/43" target="_blank" rel="noopener" style="color:var(--accent)">2026 development roadmap</a>, together with a developer meeting on the contribution workflow and future direction. Workshop participants are very welcome to stay: if there is something you would like to try with the model, come along and we will pair you with the developer who works on that part of the code. No proposal, no team and no demo required.</p>
 
       <div class="schedule" style="margin-bottom:40px">
         <div class="day">
           <div class="date">Thu<span>Nov 5</span></div>
-          <div><h3>Day 1 — Kick off &amp; build</h3><p>Lightning intro to the roadmap, team formation around tracks, and a community discussion on the GitHub contribution workflow &amp; push policy — then teams start building.</p></div>
+          <div><h3>Day 1 — Roadmap &amp; open work</h3><p>Orientation, then a community discussion of the code roadmap and the GitHub contribution workflow (pull requests, review, push policy). Topics and issues are picked after lunch, and open collaborative work begins.</p></div>
         </div>
         <div class="day">
           <div class="date">Fri<span>Nov 6</span></div>
-          <div><h3>Day 2 — Build &amp; demos</h3><p>Continued hacking with mentor support, a roadmap &amp; future-direction discussion, then team demos, wrap-up, and next steps.</p></div>
+          <div><h3>Day 2 — Open work &amp; the road ahead</h3><p>Continued work and PR preparation with developers on hand, a collaborative PR and documentation review, then a roundtable on future development and planning for the next workshop.</p></div>
         </div>
       </div>
 
@@ -524,8 +637,8 @@ make</div>
         </div>
         <div class="card">
           <div class="ico">🤝</div>
-          <h3>How it works</h3>
-          <p>Bring an idea or join a track on the day. Teams of any size are welcome — solo too. Core developers are on hand to mentor. The goal is working contributions and a shared plan for what comes next.</p>
+          <h3>Bring a question, meet a developer</h3>
+          <p>The sprint is run by and for the developers this year, so there is nothing to prepare and nothing to present. If the workshop sparked an idea — a setup you want to try, a feature you wish existed, a result you cannot reproduce — bring it along on Day 4 and we will connect you with the developer who knows that part of the code.</p>
         </div>
       </div>
 
@@ -540,7 +653,7 @@ make</div>
     <div class="wrap reveal">
       <div class="section-tag">Program</div>
       <h2 class="section-title">Talks</h2>
-      <p class="section-intro">Accepted presentations from our speakers. Slides and materials are linked where available. Want to present? See the <a href="#call" style="color:var(--accent)">Call for Presentations</a> below.</p>
+      <p class="section-intro">Presentations confirmed so far. Titles and abstracts are provisional unless the full abstract is shown, and slides are linked once available. Want to present? See the <a href="#call" style="color:var(--accent)">Call for Presentations</a> below.</p>
 
       <div id="talks-list" class="talks-list"><!-- rendered from data below --></div>
       <p id="talks-empty" class="note" style="display:none">No talks have been published yet — check back soon, or submit yours below.</p>
@@ -764,8 +877,8 @@ make</div>
           <p>No. This is an in-person event held on-site at KIGAM only.</p>
         </details>
         <details>
-          <summary>Do I need a team for the hackathon?</summary>
-          <p>No. You can come solo and form or join a team during the kickoff session. Existing teams are welcome too.</p>
+          <summary>Do I need a team or a proposal for the hackathon?</summary>
+          <p>No. Days 4–5 are developer-centred: an open sprint on the 2026 roadmap plus a developer meeting, with no proposals, teams or demos required. Workshop participants are very welcome to join — if there is something you want to try with the model, we will pair you with the developer who works on that part of the code.</p>
         </details>
         <details>
           <summary>Is my spot guaranteed once I register?</summary>
@@ -803,19 +916,66 @@ make</div>
        Set 'url' to a public link (e.g. a Google Drive share link).
        ========================================================= */
     const TALKS = [
-      // ---- talks (add/edit entries; fill in speaker & abstract once confirmed) ----
       {
-        title: "Progress in LagHOST",
+        day: "Day 1 · Mon, Nov 2",
+        title: "Earthquake-cycle models: a review of the history and the current state",
+        speaker: "So Ozawa",
+        affiliation: "Earthquake Research Institute (ERI), University of Tokyo",
+        abstract: "A review of how earthquake-cycle modeling developed and where it stands today. Full abstract to be announced.",
+        files: []
+      },
+      {
+        day: "Day 1 · Mon, Nov 2",
+        title: "Fault-zone thickness controls pre-rupture deformation partitioning and earthquake cycles",
         speaker: "Sungho Lee",
-        affiliation: "KIGAM",
-        abstract: "LagHOST (Lagrangian High-order multiphysics Solver for Tightly Coupled Solid Earth Systems) — full abstract to be announced.",
+        affiliation: "Earthquake Research Center, KIGAM",
+        abstract: "Fault zones are finite volumes in which localized slip and distributed deformation coexist, yet most earthquake-cycle models place friction on a surface of zero thickness. Using two-dimensional rate-and-state elastoplastic simulations, we ask whether the thickness of the actively deforming volume reorganizes earthquake cycles even when the frictional properties are held fixed. Widening the velocity-weakening band from 200 m to 3200 m moves pre-rupture plastic deformation off the modeled principal slip zones (PSZs) and into the interior of the band: rupture preparation begins in the fault-zone core, grows along secondary shear bands that link the core to both interfaces, and only then localizes as fast slip on the PSZs. Thicker bands spread that preparation across a broader interior without a proportional widening of the localized strain zone, whereas thin bands retain more accelerated interseismic creep on the PSZs. More distributed preparation goes together with shorter recurrence intervals, smaller slip per event, lower peak slip speeds and smaller local shear-stress drops. Active thickness also shifts the earthquake–creep transition and changes how dilation diffuses deformation — making fault-zone thickness a structural control on earthquake cycles that is distinct from local friction.",
         files: [
           // { label: "Slides (PDF)", url: "https://..." }
         ]
       },
+      {
+        day: "Day 2 · Tue, Nov 3",
+        title: "Two-phase flow and melt migration in DynEarthSol",
+        speaker: "Chase Shyu",
+        affiliation: "Jackson School of Geosciences, University of Texas at Austin",
+        abstract: "Modeling melt migration with the two-phase flow formulation in DynEarthSol. Full abstract to be announced.",
+        files: []
+      },
+      {
+        day: "Day 2 · Tue, Nov 3",
+        title: "Continental rifting and lithospheric extension",
+        speaker: "Luc Lavier",
+        affiliation: "Jackson School of Geosciences, University of Texas at Austin",
+        abstract: "An introduction to GeoFLAC and a look back at earlier and ongoing work on continental rifting and lithospheric extension. Full abstract to be announced.",
+        files: []
+      },
+      {
+        day: "Day 3 · Wed, Nov 4",
+        title: "Coupling ASPECT and FastScape: tectonics and surface processes",
+        speaker: "Jaeyoon Keum",
+        affiliation: "Department of Geophysics, Kangwon National University",
+        abstract: "Linking mantle and lithospheric deformation in ASPECT with landscape evolution in FastScape. Full abstract to be announced.",
+        files: []
+      },
+      {
+        day: "Day 3 · Wed, Nov 4",
+        title: "Thermochronology and thrust systems: the Taiwan case",
+        speaker: "Eh Tan",
+        affiliation: "Institute of Earth Sciences, Academia Sinica",
+        abstract: "Bringing thermochronological constraints to bear on thrust-belt models, with Taiwan as the case study. Full abstract to be announced.",
+        files: []
+      },
+      {
+        day: "Day 3 · Wed, Nov 4",
+        title: "Coupling DynEarthSol with goSPL: tectonics meets landscape evolution",
+        speaker: "Eunseo Choi",
+        affiliation: "Center for Earthquake Research and Information (CERI), University of Memphis",
+        abstract: "Why couple tectonic and surface-process models, the general principles behind goSPL, and the coupling scheme implemented in DynEarthSol. Full abstract to be announced.",
+        files: []
+      },
       // ---- add more talks below ----
     ];
-
     (function renderTalks() {
       const list = document.getElementById('talks-list');
       const empty = document.getElementById('talks-empty');
@@ -823,7 +983,8 @@ make</div>
       const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
       list.innerHTML = TALKS.map(t => `
         <div class="talk">
-          <h3>${esc(t.title)}</h3>
+          ${t.day ? `<div class="day-tag">${esc(t.day)}</div>` : ''}
+          <h3>${esc(t.title)}${t.tbc ? `<span class="tbc">to be confirmed</span>` : ''}</h3>
           <div class="speaker">${esc(t.speaker)}${t.affiliation ? ` <span class="affil">· ${esc(t.affiliation)}</span>` : ''}</div>
           <p class="abstract">${esc(t.abstract)}</p>
           ${(t.files && t.files.length) ? `<div class="files">${t.files.map(f => `<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.label)} ↗</a>`).join('')}</div>` : ''}
