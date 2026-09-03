@@ -426,7 +426,7 @@
       <div class="schedule">
         <div class="day">
           <div class="date">월<span>11/2</span></div>
-          <div><h3>워크샵 1일차 — 튜토리얼 &amp; 지진 주기</h3><p>환영 인사와 참가자 소개, GeoFLAC·DynEarthSol 개요(계산 가속 포함), 이어서 지진 주기 모델링 발표와 실습 세션.</p></div>
+          <div><h3>워크샵 1일차 — 튜토리얼 &amp; 지진 주기</h3><p>환영 인사와 참가자 소개, GeoFLAC·DynEarthSol 개요(DynEarthSol v2.0의 GPU 가속 포함), 이어서 지진 주기 모델링 발표와 실습 세션.</p></div>
         </div>
         <div class="day">
           <div class="date">화<span>11/3</span></div>
@@ -456,9 +456,9 @@
             <tr><td>09:30–09:40</td><td><b>환영 인사 및 오리엔테이션</b><span class="who">이성호 (Sungho Lee)</span></td></tr>
             <tr><td>09:40–09:50</td><td><b>GeoFLAC/DynEarthSol 팀 소개</b><span class="who">개발팀</span></td></tr>
             <tr><td>09:50–10:05</td><td><b>참가자 소개</b><span class="who">전체</span></td></tr>
-            <tr><td>10:05–10:45</td><td><b>개요 · GeoFLAC</b><span class="who">Luc Lavier</span></td></tr>
+            <tr><td>10:05–10:45</td><td><b>개요 · GeoFLAC</b><span class="who">Luc L. Lavier</span></td></tr>
             <tr class="rest"><td>10:45–11:00</td><td>휴식</td></tr>
-            <tr><td>11:00–11:40</td><td><b>개요 · DynEarthSol (계산 가속 포함)</b><span class="who">Eunseo Choi, Chase Shyu, 이성호</span></td></tr>
+            <tr><td>11:00–11:40</td><td><b>개요 · DynEarthSol v2.0 (GPU 가속 포함)</b><span class="who">Eh Tan, Chase J. Shyu, 이성호</span></td></tr>
             <tr><td>11:40–12:00</td><td><b>질의응답 및 토론</b><span class="who">전체</span></td></tr>
             <tr class="rest"><td>12:00–13:00</td><td>점심 — KIGAM 구내식당</td></tr>
             <tr><td>13:00–13:40</td><td><b>발표 · 지진 주기 모델의 역사와 현재</b><span class="who">So Ozawa</span></td></tr>
@@ -472,13 +472,13 @@
         <details>
           <summary><span>2일차 · 11/3 (화)<span class="theme">튜토리얼 + 용융체 이동·이상유동</span></span></summary>
           <div class="prog-wrap"><table>
-            <tr><td>09:30–10:45</td><td><b>튜토리얼 1</b><span class="tbc">주제 미정</span><span class="who">Eunseo Choi, Chase Shyu</span></td></tr>
+            <tr><td>09:30–10:45</td><td><b>튜토리얼 1</b><span class="tbc">주제 미정</span><span class="who">Eunseo Choi, Chase J. Shyu</span></td></tr>
             <tr class="rest"><td>10:45–11:00</td><td>휴식</td></tr>
-            <tr><td>11:00–11:40</td><td><b>발표 · 이상유동과 용융체 이동</b><span class="who">Chase Shyu</span></td></tr>
+            <tr><td>11:00–11:40</td><td><b>발표 · 마그마에서 얼음으로 — 유로파 카오스 지형을 위한 이상유동 솔버</b><span class="who">Chase J. Shyu</span></td></tr>
             <tr><td>11:40–12:00</td><td><b>질의응답 및 토론</b><span class="who">전체</span></td></tr>
             <tr class="rest"><td>12:00–13:00</td><td>점심 — KIGAM 구내식당</td></tr>
-            <tr><td>13:00–13:40</td><td><b>발표 · 대륙 열개와 암석권 신장</b><span class="who">Luc Lavier</span></td></tr>
-            <tr><td>13:40–14:55</td><td><b>튜토리얼 2</b><span class="tbc">주제 미정</span><span class="who">Eunseo Choi, Chase Shyu</span></td></tr>
+            <tr><td>13:00–13:40</td><td><b>발표 · 대륙 열개와 암석권 신장</b><span class="who">Luc L. Lavier</span></td></tr>
+            <tr><td>13:40–14:55</td><td><b>튜토리얼 2</b><span class="tbc">주제 미정</span><span class="who">Eunseo Choi, Chase J. Shyu</span></td></tr>
             <tr class="rest"><td>14:55–15:10</td><td>휴식</td></tr>
             <tr><td>15:10–16:40</td><td><b>튜토리얼 / 실습 세션</b><span class="tbc">주제 미정</span><span class="who">Eunseo Choi</span></td></tr>
             <tr><td>16:40–17:00</td><td><b>2일차 마무리</b><span class="who">전체</span></td></tr>
@@ -903,6 +903,14 @@ make</div>
     const TALKS = [
       {
         day: "1일차 · 11/2 (월)",
+        title: "GPU를 위한 라그랑지안 지구동역학 솔버 최적화: DynEarthSol v2.0의 알고리즘과 성능",
+        speaker: "Chase J. Shyu, 이성호, Xuesong Ding, 금재윤, Eh Tan, Luc L. Lavier, Eunseo Choi",
+        affiliation: "UT Austin · KIGAM · Gyeongsang National University · Academia Sinica · University of Memphis",
+        abstract: "DynEarthSol(DES)은 열-역학 연속체를 푸는 오픈소스(MIT 라이선스) C++ 유한요소 솔버로, 비정렬 라그랑지안 격자(2D 삼각형, 3D 사면체) 위의 명시적 시간 적분과 점탄소성(visco-elasto-plastic) 유변학을 결합하고, 자동 리메싱과 마커 기반 리매핑으로 큰 변형을 수용합니다. 따라서 모델의 크기와 지속 시간을 실질적으로 제한하는 것은 정식화가 아니라 처리량(throughput)입니다. 버전 2.0은 솔버의 병렬 실행 구조를 다시 설계했습니다. 비정렬 격자에서의 힘 조립(force assembly)은 합산 순서가 스레드 수에 의존하는 scatter–gather 연산이어서, 부동소수점 덧셈의 비결합성 때문에 실행마다 결과가 조금씩 달라졌습니다. 결정론적 2단계 갱신으로 그 순서를 고정해 반복 실행이 비트 단위로 동일해집니다. GPU 지원은 지시자(directive) 수준의 오프로드를 넘어섭니다. 성능이 중요한 배열을 structure-of-arrays 배치로 바꿔 인접 스레드가 연속된 메모리를 읽도록 했고, 주요 자료구조는 시간 루프 내내 디바이스에 상주시켜 호스트 전송을 없앴습니다. 리매핑 비용을 지배하는 최근접 이웃 탐색은 CUDA로 작성한 전용 BVH(bounding-volume-hierarchy) 커널로 다시 구현했으며, 풀(pool) 기반 할당으로 끊임없이 변하는 위상 구조에 대응합니다. 시간 적분 커널 자체는 OpenACC 지시자와 통합 메모리(unified memory)를 사용해, 하나의 C++ 소스를 CPU 전용 장비에도 그대로 이식할 수 있게 했습니다. 출력은 HDF5 기반 VTKHDF로 옮겨 I/O 병목을 제거했습니다. Grace CPU와 H100 GPU에서 5 × 10⁶ 요소까지 거의 선형으로 확장되며, 72개 CPU 코어에서 51.8배(효율 72 %), 커널 수준 GPU 최대 이득 4.0배에 이릅니다 — 후자는 약 3 × 10⁵ 요소를 넘어설 때에만 실현됩니다.",
+        files: []
+      },
+      {
+        day: "1일차 · 11/2 (월)",
         title: "지진 주기 모델: 역사와 현재",
         speaker: "So Ozawa",
         affiliation: "Earthquake Research Institute (ERI), University of Tokyo",
@@ -919,17 +927,17 @@ make</div>
       },
       {
         day: "2일차 · 11/3 (화)",
-        title: "DynEarthSol의 이상유동과 용융체 이동",
-        speaker: "Chase Shyu",
-        affiliation: "Jackson School of Geosciences, University of Texas at Austin",
-        abstract: "DynEarthSol의 이상유동(two-phase flow) 정식화를 이용한 용융체 이동 모델링. 상세 초록은 추후 공지됩니다.",
+        title: "마그마에서 얼음으로: 유로파 카오스 지형을 위한 효율적인 이상유동 솔버",
+        speaker: "Chase J. Shyu, Luc L. Lavier",
+        affiliation: "Institute for Geophysics, Jackson School of Geosciences, University of Texas at Austin",
+        abstract: "유로파의 카오스 지형은 액체 물이 얼음 껍질을 통과해 이동하면서 그것을 부수어 놓은 표면 기록일 수 있습니다. 같은 과정이 맨틀에서 마그마 이동을 일으킵니다. 유체가, 그 주위에서 변형하고 압축되는 고체 밖으로 흘러나오는 것입니다. 이는 이상(two-phase) 압축(compaction) 다공질역학으로 기술됩니다. 이를 얼음 껍질에서 모델링하려면 다공질 유동을 자유표면을 가진 점탄소성 고체의 대변형과 결합해야 합니다. 기존 코드는 대부분 음해법(implicit)입니다. 낮은 공극률(약 1 %)에서는 이들 솔버가 특별히 설계된 전처리기(preconditioner)를 필요로 하고, 일부 표준 정식화는 아예 수렴하지 않습니다. 계산 비용 탓에 지금까지 발표된 계산은 압축 시간의 몇 배 수준에 머물렀습니다. 이 연구에서는 라그랑지안 유한요소 지구동역학 코드인 DynEarthSol(DES)에 명시적·행렬 비조립(matrix-free) 이상유동을 구현했습니다. 다르시(Darcy) 유동, 공극률 의존 투수율과 압축 점성, Biot/Yarushina-Podladchikov 다공질역학을 DES의 점성·맥스웰·탄점소성(EVP) 유변학과 2차원·3차원에서 결합하고, 유효응력 항복과 감압 약화(decompaction weakening)를 포함합니다. 해석해가 존재하는 마그마 영역에서 코드를 검증했으며, 2차원과 3차원 모두에서 공극률 고립파(solitary wave) 계열을 재현하고 위상 속도도 이론과 비슷합니다. 20 m 해상도의 64k 요소 EVP 모델은 CPU 6코어에서 8시간 만에, 6개 CPU 코어에서 약 1시간 만에, GPU나 클러스터 자원 없이 600 kyr(압축 시간 약 28배)에 도달해, 보통 수준의 하드웨어로도 지질학적 시간 규모의 매개변수 탐색이 가능합니다. 진행 중인 연구에서는 이 틀을 얼음 껍질 물성에 적용하고, 잠열을 동반한 질량 보존 얼음–물 상변화를 추가하고 있습니다.",
         files: []
       },
       {
         day: "2일차 · 11/3 (화)",
         title: "대륙 열개와 암석권 신장",
-        speaker: "Luc Lavier",
-        affiliation: "Jackson School of Geosciences, University of Texas at Austin",
+        speaker: "Luc L. Lavier",
+        affiliation: "Institute for Geophysics, Jackson School of Geosciences, University of Texas at Austin",
         abstract: "GeoFLAC 소개와 함께, 대륙 열개(rifting) 및 암석권 신장에 관한 기존·진행 중인 연구를 돌아봅니다. 상세 초록은 추후 공지됩니다.",
         files: []
       },

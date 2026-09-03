@@ -434,7 +434,7 @@
       <div class="schedule">
         <div class="day">
           <div class="date">Mon<span>Nov 2</span></div>
-          <div><h3>Workshop Day 1 — Tutorials &amp; the earthquake cycle</h3><p>Welcome and introductions, GeoFLAC and DynEarthSol overviews — including computational acceleration — then talks and a hands-on block on earthquake-cycle modeling.</p></div>
+          <div><h3>Workshop Day 1 — Tutorials &amp; the earthquake cycle</h3><p>Welcome and introductions, GeoFLAC and DynEarthSol overviews — including GPU acceleration in DynEarthSol v2.0 — then talks and a hands-on block on earthquake-cycle modeling.</p></div>
         </div>
         <div class="day">
           <div class="date">Tue<span>Nov 3</span></div>
@@ -464,9 +464,9 @@
             <tr><td>09:30–09:40</td><td><b>Welcome and orientation</b><span class="who">Sungho Lee</span></td></tr>
             <tr><td>09:40–09:50</td><td><b>Meet the GeoFLAC/DynEarthSol team</b><span class="who">Development team</span></td></tr>
             <tr><td>09:50–10:05</td><td><b>Participant introductions</b><span class="who">Everyone</span></td></tr>
-            <tr><td>10:05–10:45</td><td><b>Overview · GeoFLAC</b><span class="who">Luc Lavier</span></td></tr>
+            <tr><td>10:05–10:45</td><td><b>Overview · GeoFLAC</b><span class="who">Luc L. Lavier</span></td></tr>
             <tr class="rest"><td>10:45–11:00</td><td>Coffee break</td></tr>
-            <tr><td>11:00–11:40</td><td><b>Overview · DynEarthSol, incl. computational acceleration</b><span class="who">Eunseo Choi, Chase Shyu &amp; Sungho Lee</span></td></tr>
+            <tr><td>11:00–11:40</td><td><b>Overview · DynEarthSol v2.0, incl. GPU acceleration</b><span class="who">Eh Tan, Chase J. Shyu &amp; Sungho Lee</span></td></tr>
             <tr><td>11:40–12:00</td><td><b>Questions and discussion</b><span class="who">Everyone</span></td></tr>
             <tr class="rest"><td>12:00–13:00</td><td>Lunch — KIGAM cafeteria</td></tr>
             <tr><td>13:00–13:40</td><td><b>Talk · Earthquake-cycle models: history and current state</b><span class="who">So Ozawa</span></td></tr>
@@ -480,13 +480,13 @@
         <details>
           <summary><span>Day 2 · Tue, Nov 3<span class="theme">Tutorials + melt migration / two-phase flow</span></span></summary>
           <div class="prog-wrap"><table>
-            <tr><td>09:30–10:45</td><td><b>Tutorial 1</b><span class="tbc">topic TBA</span><span class="who">Eunseo Choi &amp; Chase Shyu</span></td></tr>
+            <tr><td>09:30–10:45</td><td><b>Tutorial 1</b><span class="tbc">topic TBA</span><span class="who">Eunseo Choi &amp; Chase J. Shyu</span></td></tr>
             <tr class="rest"><td>10:45–11:00</td><td>Coffee break</td></tr>
-            <tr><td>11:00–11:40</td><td><b>Talk · Two-phase flow and melt migration</b><span class="who">Chase Shyu</span></td></tr>
+            <tr><td>11:00–11:40</td><td><b>Talk · From Magma to Ice — a two-phase flow solver for Europa's chaos terrain</b><span class="who">Chase J. Shyu</span></td></tr>
             <tr><td>11:40–12:00</td><td><b>Questions and discussion</b><span class="who">Everyone</span></td></tr>
             <tr class="rest"><td>12:00–13:00</td><td>Lunch — KIGAM cafeteria</td></tr>
-            <tr><td>13:00–13:40</td><td><b>Talk · Continental rifting and lithospheric extension</b><span class="who">Luc Lavier</span></td></tr>
-            <tr><td>13:40–14:55</td><td><b>Tutorial 2</b><span class="tbc">topic TBA</span><span class="who">Eunseo Choi &amp; Chase Shyu</span></td></tr>
+            <tr><td>13:00–13:40</td><td><b>Talk · Continental rifting and lithospheric extension</b><span class="who">Luc L. Lavier</span></td></tr>
+            <tr><td>13:40–14:55</td><td><b>Tutorial 2</b><span class="tbc">topic TBA</span><span class="who">Eunseo Choi &amp; Chase J. Shyu</span></td></tr>
             <tr class="rest"><td>14:55–15:10</td><td>Coffee break</td></tr>
             <tr><td>15:10–16:40</td><td><b>Tutorial / hands-on session</b><span class="tbc">topic TBA</span><span class="who">Eunseo Choi</span></td></tr>
             <tr><td>16:40–17:00</td><td><b>Day 2 wrap-up</b><span class="who">Everyone</span></td></tr>
@@ -918,6 +918,14 @@ make</div>
     const TALKS = [
       {
         day: "Day 1 · Mon, Nov 2",
+        title: "Optimizing a Lagrangian geodynamic solver for GPUs: algorithm and performance in DynEarthSol v2.0",
+        speaker: "Chase J. Shyu, Sungho Lee, Xuesong Ding, Jaeyoon Keum, Eh Tan, Luc L. Lavier & Eunseo Choi",
+        affiliation: "UT Austin · KIGAM · Gyeongsang National University · Academia Sinica · University of Memphis",
+        abstract: "DynEarthSol (DES) is an open-source (MIT-licensed) C++ finite-element solver for thermo-mechanical continua, combining explicit time integration on an unstructured Lagrangian mesh (triangular in 2D, tetrahedral in 3D) with visco-elasto-plastic rheology, and accommodating large strain by automatic remeshing and marker-based remapping. Throughput, rather than formulation, therefore sets the practical limit on model size and duration. Version 2.0 rebuilds the solver's parallel execution. Force assembly on an unstructured mesh is a scatter–gather whose summation order depended on thread count, so non-associative floating-point addition let results drift between runs; a deterministic two-stage update fixes that order, making repeated runs bitwise identical. GPU support goes beyond directive-level offload. Performance-critical arrays were converted to a structure-of-arrays layout so neighboring threads read contiguous memory, and the main data structures stay device-resident across the time loop, avoiding host transfers. The nearest-neighbor search that dominates remapping was rewritten as a custom bounding-volume-hierarchy kernel in CUDA, with pooled allocation to withstand continual topology change. Time-integration kernels themselves use OpenACC directives and unified memory, keeping one C++ source portable to CPU-only machines. Output moves to HDF5-based VTKHDF, removing I/O as a bottleneck. On Grace CPU and H100 GPU, scaling is near-linear to 5 × 10⁶ elements, reaching 51.8× on 72 CPU cores (72 % efficiency) and a peak kernel-level GPU gain of 4.0× — realized only above ~3 × 10⁵ elements.",
+        files: []
+      },
+      {
+        day: "Day 1 · Mon, Nov 2",
         title: "Earthquake-cycle models: a review of the history and the current state",
         speaker: "So Ozawa",
         affiliation: "Earthquake Research Institute (ERI), University of Tokyo",
@@ -936,17 +944,17 @@ make</div>
       },
       {
         day: "Day 2 · Tue, Nov 3",
-        title: "Two-phase flow and melt migration in DynEarthSol",
-        speaker: "Chase Shyu",
-        affiliation: "Jackson School of Geosciences, University of Texas at Austin",
-        abstract: "Modeling melt migration with the two-phase flow formulation in DynEarthSol. Full abstract to be announced.",
+        title: "From Magma to Ice: An Efficient Two-Phase Flow Solver for Europa's Chaos Terrain",
+        speaker: "Chase J. Shyu & Luc L. Lavier",
+        affiliation: "Institute for Geophysics, Jackson School of Geosciences, University of Texas at Austin",
+        abstract: "Chaos terrain on Europa may be the surface record of liquid water moving through the ice shell and breaking it apart. The same process drives magma transport in the mantle: a fluid flows out of a solid that deforms and compacts around it. It is described by two-phase (compaction) poromechanics. Modeling it in an ice shell requires coupling porous flow to large deformation of a visco-elasto-plastic solid with a free surface. Most existing codes are implicit. At the low porosities (about 1%), their solvers need specially designed preconditioners, and some standard formulations fail to converge at all. Cost has limited published runs to a few compaction times. We present an explicit, matrix-free two-phase flow implementation in DynEarthSol (DES), a Lagrangian finite-element geodynamics code. It couples Darcy flow, porosity-dependent permeability and compaction viscosity, and Biot/Yarushina-Podladchikov poromechanics to DES's viscous, Maxwell and elasto-visco-plastic (EVP) rheologies in 2-D and 3-D, with effective-stress yielding and decompaction weakening. We verify the code in the magmatic regime, where analytic solutions exist. It reproduces the porosity solitary-wave family in 2-D and 3-D, with phase speeds comparable to theory. An EVP model on 64k elements at 20 m resolution reaches 600 kyr, about 28 compaction times, in 8 hours on 6 CPU cores, completes in about one hour on six CPU cores, without GPU or cluster resources, making parameter surveys over geologic timescales feasible on modest hardware. Ongoing work applies the framework to ice-shell properties and adds mass-conserving ice-water phase change with latent heat.",
         files: []
       },
       {
         day: "Day 2 · Tue, Nov 3",
         title: "Continental rifting and lithospheric extension",
-        speaker: "Luc Lavier",
-        affiliation: "Jackson School of Geosciences, University of Texas at Austin",
+        speaker: "Luc L. Lavier",
+        affiliation: "Institute for Geophysics, Jackson School of Geosciences, University of Texas at Austin",
         abstract: "An introduction to GeoFLAC and a look back at earlier and ongoing work on continental rifting and lithospheric extension. Full abstract to be announced.",
         files: []
       },
