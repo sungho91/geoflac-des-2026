@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GeoFLAC/DynEarthSol Workshop &amp; Hackathon 2026</title>
-  <meta name="description" content="GeoFLAC/DynEarthSol Workshop & Hackathon — KIGAM, November 2–6, 2026. Free, in-person. For GeoFLAC/DynEarthSol developers and anyone interested." />
+  <meta name="description" content="GeoFLAC/DynEarthSol Workshop & Hackathon — Daejeon, Korea, November 2–6, 2026. Free, in-person. For GeoFLAC/DynEarthSol developers and anyone interested." />
 
   <!-- Open Graph (link previews on Slack / KakaoTalk / Twitter) -->
   <meta property="og:title" content="GeoFLAC/DynEarthSol Workshop & Hackathon 2026" />
-  <meta property="og:description" content="KIGAM · Nov 2–6, 2026 · In-person · Free. Build, learn, and hack on GeoFLAC/DynEarthSol." />
+  <meta property="og:description" content="Daejeon, Korea · Nov 2–6, 2026 · In-person · Free. Build, learn, and hack on GeoFLAC/DynEarthSol." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://sungho91.github.io/geoflac-des-2026/" />
   <meta property="og:image" content="https://sungho91.github.io/geoflac-des-2026/gallery/earthquake-cycle.png" />
@@ -130,6 +130,7 @@
     .btn-primary:hover { transform: translateY(-3px); box-shadow: var(--glow); }
     .btn-ghost { border-color: var(--border); color: var(--text); background: var(--bg-soft); }
     .btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); }
+    .btn-closed { border-color: var(--border); color: var(--muted); background: var(--bg-soft); cursor: not-allowed; }
 
     .facts { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; margin-top: 56px; }
     .fact { text-align: center; }
@@ -306,14 +307,13 @@
         <a href="#prepare">Prepare</a>
         <a href="#talks">Talks</a>
         <a href="#gallery">Gallery</a>
-        <a href="#call">Submit a talk</a>
         <a href="#venue">Venue</a>
         <a href="#travel">Travel</a>
         <a href="#faq">FAQ</a>
       </div>
       <div style="display:flex;align-items:center;gap:14px">
         <a href="ko.html" style="font-size:.85rem;color:var(--muted);font-weight:600" title="한국어">한국어</a>
-        <a class="nav-cta" href="#register">Register</a>
+        <a class="nav-cta" href="#schedule">Schedule</a>
       </div>
     </div>
   </nav>
@@ -322,17 +322,17 @@
   <header class="hero">
     <div class="grid-bg"></div>
     <div class="wrap">
-      <div class="badge">📍 KIGAM &nbsp;·&nbsp; <b>Nov 2–6, 2026</b> &nbsp;·&nbsp; In-person &nbsp;·&nbsp; Free</div>
+      <div class="badge">📍 Daejeon, Korea &nbsp;·&nbsp; <b>Nov 2–6, 2026</b> &nbsp;·&nbsp; In-person &nbsp;·&nbsp; Free</div>
       <h1>GeoFLAC/DynEarthSol<br />Workshop &amp; Hackathon</h1>
-      <p class="lead">A hands-on week to learn DynEarthSol workflows, discuss geodynamic modeling challenges, and build new tools with the GeoFLAC/DynEarthSol community. Three days of workshops and a two-day hackathon at KIGAM — beginners welcome.</p>
+      <p class="lead">A hands-on week to learn DynEarthSol workflows, discuss geodynamic modeling challenges, and build new tools with the GeoFLAC/DynEarthSol community. Three days of workshops and a two-day hackathon in Daejeon — beginners welcome.</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="#register">Register — it's free</a>
+        <span class="btn btn-closed" aria-disabled="true">Registration closed</span>
         <a class="btn btn-ghost" href="#schedule">View schedule</a>
       </div>
 
       <div class="facts">
         <div class="fact"><div class="k">5</div><div class="v">Days</div></div>
-        <div class="fact"><div class="k">KIGAM</div><div class="v">Venue</div></div>
+        <div class="fact"><div class="k">Daejeon</div><div class="v">Venue</div></div>
         <div class="fact"><div class="k">$0</div><div class="v">Cost</div></div>
         <div class="fact"><div class="k">Open</div><div class="v">To everyone</div></div>
       </div>
@@ -555,7 +555,7 @@
       <p class="section-intro">The tutorials are run with <b>DynEarthSol</b>. We'll do a quick environment check on Day 1, but we will <b>not</b> walk through the full build process during the workshop — so please build it on your own laptop beforehand and confirm it runs. This way we can dive straight into modeling.</p>
 
       <div style="background:var(--card);border:1px solid var(--accent);border-left-width:4px;border-radius:12px;padding:18px 22px;margin-bottom:32px;box-shadow:var(--shadow)">
-        <b>⚠️ Important — no public Wi-Fi on-site.</b> <span style="color:var(--muted)">For security reasons KIGAM does not provide public Wi-Fi. Please download DynEarthSol, its dependencies, the tutorial materials, and any documentation <b>before</b> you arrive.</span>
+        <b>⚠️ Important — no public Wi-Fi on-site.</b> <span style="color:var(--muted)">Please download DynEarthSol, its dependencies, the tutorial materials, and any documentation <b>before</b> you arrive.</span>
       </div>
 
       <div class="cards">
@@ -653,10 +653,10 @@ make</div>
     <div class="wrap reveal">
       <div class="section-tag">Program</div>
       <h2 class="section-title">Talks</h2>
-      <p class="section-intro">Presentations confirmed so far. Titles and abstracts are provisional unless the full abstract is shown, and slides are linked once available. Want to present? See the <a href="#call" style="color:var(--accent)">Call for Presentations</a> below.</p>
+      <p class="section-intro">Presentations confirmed so far. Titles and abstracts are provisional unless the full abstract is shown, and slides are linked once available.</p>
 
       <div id="talks-list" class="talks-list"><!-- rendered from data below --></div>
-      <p id="talks-empty" class="note" style="display:none">No talks have been published yet — check back soon, or submit yours below.</p>
+      <p id="talks-empty" class="note" style="display:none">No talks have been published yet — check back soon.</p>
       <noscript><p class="note">Please enable JavaScript to view the talks.</p></noscript>
     </div>
   </section>
@@ -666,38 +666,16 @@ make</div>
     <div class="wrap reveal">
       <div class="section-tag">Speakers</div>
       <h2 class="section-title">Call for Presentations</h2>
-      <p class="section-intro">Share your work with the GeoFLAC/DynEarthSol community. We welcome talks on models, methods, tools, results, and works in progress — from seasoned developers and newcomers alike.</p>
-
-      <div class="cards" style="margin-bottom:40px">
-        <div class="card">
-          <div class="ico">📝</div>
-          <h3>1. Prepare</h3>
-          <p>A talk <b>title</b> and a short <b>abstract</b> (150–250 words). Optionally your slides or paper.</p>
-        </div>
-        <div class="card">
-          <div class="ico">📤</div>
-          <h3>2. Submit</h3>
-          <p>Send your title, abstract, and slides (<b>≤ 10&nbsp;MB</b>) through the form. Large files like videos? <b>Email them to us</b> instead — see below.</p>
-        </div>
-        <div class="card">
-          <div class="ico">✅</div>
-          <h3>3. Get listed</h3>
-          <p>Accepted talks appear in the <a href="#talks" style="color:var(--accent)">Talks</a> section above with your name and materials.</p>
-        </div>
-      </div>
-
       <div class="band">
-        <h2>Submit your talk</h2>
-        <p>Title · abstract · slides (PDF / PPT, up to <b>10&nbsp;MB</b> per file).</p>
-        <a class="btn btn-primary" href="https://tally.so/r/J9Mx2X" target="_blank" rel="noopener">Open submission form</a>
+        <h2>Talk submissions are closed</h2>
+        <p>Thank you to everyone who submitted! Authors will be notified of acceptance <b>by Oct 14, 2026</b>, and accepted talks appear in the <a href="#talks" style="color:var(--accent)">Talks</a> section above.</p>
 
         <div style="margin-top:28px;padding-top:24px;border-top:1px solid var(--border)">
-          <p style="margin-bottom:14px"><b>Got a large file?</b> Videos or slide decks over 10&nbsp;MB can't go through the form — email them to us directly with your talk title.</p>
-          <a class="btn btn-ghost" href="mailto:slee91@kigam.re.kr?subject=GeoFLAC%2FDynEarthSol%202026%20%E2%80%94%20Talk%20submission%20(large%20file)&body=Talk%20title%3A%20%0ASpeaker%3A%20%0AAffiliation%3A%20%0A%0A(Please%20attach%20your%20file%2C%20or%20paste%20a%20share%20link%20below.)%0A">Email a large file ↗</a>
+          <p style="margin-bottom:14px"><b>Speakers:</b> need to send or update your slides? Email them to us with your talk title — large files such as videos too.</p>
+          <a class="btn btn-ghost" href="mailto:slee91@kigam.re.kr?subject=GeoFLAC%2FDynEarthSol%202026%20%E2%80%94%20Talk%20slides&body=Talk%20title%3A%20%0ASpeaker%3A%20%0AAffiliation%3A%20%0A%0A(Please%20attach%20your%20file%2C%20or%20paste%20a%20share%20link%20below.)%0A">Email your slides ↗</a>
         </div>
 
-        <p style="margin-top:24px;font-size:.82rem">Talk submission deadline: <b>Sep 30, 2026</b> · Notification of acceptance: <b>by Oct 14, 2026</b> · Questions? <a href="mailto:slee91@kigam.re.kr" style="color:var(--accent)">slee91@kigam.re.kr</a></p>
-        <p style="margin-top:10px;font-size:.78rem;color:var(--muted)">The submission form opens in Tally.so. We use your information only to manage the program and event communication.</p>
+        <p style="margin-top:24px;font-size:.82rem">Questions? <a href="mailto:slee91@kigam.re.kr" style="color:var(--accent)">slee91@kigam.re.kr</a></p>
       </div>
     </div>
   </section>
@@ -834,15 +812,14 @@ make</div>
   <section id="register">
     <div class="wrap reveal">
       <div class="band">
-        <h2>Join us at KIGAM</h2>
-        <p>Registration is free, but seats are limited to <b>~30 participants</b>.</p>
-        <a class="btn btn-primary" href="https://tally.so/r/obv1MN" target="_blank" rel="noopener">Register now</a>
+        <h2>Registration is closed</h2>
+        <p>Thank you to everyone who signed up!</p>
 
         <div style="margin-top:28px;padding-top:24px;border-top:1px solid var(--border);text-align:left;max-width:660px;margin-left:auto;margin-right:auto">
-          <p style="margin-bottom:10px"><b>Please note — places are limited.</b></p>
-          <p style="color:var(--muted);font-size:.92rem">Submitting the form does not guarantee a seat. We will send <b>confirmation emails by mid-October 2026</b>. Spots are allocated on a <b>first-come, first-served</b> basis by registration time; if the event is full you will be placed on a <b>waiting list</b>. To keep participation balanced, we may limit the number of confirmed participants <b>per institution</b>.</p>
+          <p style="margin-bottom:10px"><b>Already registered?</b></p>
+          <p style="color:var(--muted);font-size:.92rem">Registration does not guarantee a seat. We will send <b>confirmation emails by mid-October 2026</b>. Spots are allocated on a <b>first-come, first-served</b> basis by registration time; if the event is full you will be placed on a <b>waiting list</b>. To keep participation balanced, we may limit the number of confirmed participants <b>per institution</b>.</p>
 
-          <p style="margin-top:18px;margin-bottom:8px"><b>Participation options</b> (choose when you register):</p>
+          <p style="margin-top:18px;margin-bottom:8px"><b>Participation options</b> (as selected in your registration):</p>
           <ul style="list-style:none;color:var(--muted);font-size:.92rem">
             <li style="padding:4px 0">• <b>Full</b> — Workshop + Developer meeting + Hackathon (all days)</li>
             <li style="padding:4px 0">• <b>Partial</b> — Workshop only</li>
@@ -852,7 +829,7 @@ make</div>
         </div>
 
         <p style="margin-top:24px;font-size:.82rem">Questions? Email <a href="mailto:slee91@kigam.re.kr" style="color:var(--accent)">slee91@kigam.re.kr</a></p>
-        <p style="margin-top:10px;font-size:.78rem;color:var(--muted)">Registration opens in Tally.so. We use your information only to manage participation and event communication.</p>
+        <p style="margin-top:10px;font-size:.78rem;color:var(--muted)">We use your registration information only to manage participation and event communication.</p>
       </div>
     </div>
   </section>
@@ -881,8 +858,8 @@ make</div>
           <p>No. Days 4–5 are developer-centred: an open sprint on the 2026 roadmap plus a developer meeting, with no proposals, teams or demos required. Workshop participants are very welcome to join — if there is something you want to try with the model, we will pair you with the developer who works on that part of the code.</p>
         </details>
         <details>
-          <summary>Is my spot guaranteed once I register?</summary>
-          <p>Not automatically — places are limited by venue capacity. Registration is first-come, first-served, and we will email you to confirm your participation. If we receive more registrations than we can host, seats are allocated as evenly as possible across institutions.</p>
+          <summary>Can I still register?</summary>
+          <p>No — registration is now closed. If you already registered, we will email you by mid-October 2026 to confirm your participation. Places are limited by venue capacity: seats are allocated first-come, first-served and as evenly as possible across institutions.</p>
         </details>
         <details>
           <summary>Do I need to install anything beforehand?</summary>
@@ -899,11 +876,11 @@ make</div>
   <!-- ===== Footer ===== -->
   <footer>
     <div class="wrap">
-      <div>© 2026 GeoFLAC/DynEarthSol Workshop &amp; Hackathon · Hosted at KIGAM</div>
+      <div>© 2026 GeoFLAC/DynEarthSol Workshop &amp; Hackathon</div>
       <div>
         <a href="#about">About</a> &nbsp;·&nbsp;
         <a href="#schedule">Schedule</a> &nbsp;·&nbsp;
-        <a href="#register">Register</a>
+        <a href="#register">Registration</a>
       </div>
     </div>
   </footer>

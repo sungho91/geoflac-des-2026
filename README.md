@@ -1,6 +1,6 @@
 # GeoFLAC/DynEarthSol Workshop & Hackathon 2026
 
-Website for the **GeoFLAC/DynEarthSol Workshop & Hackathon** — KIGAM, **November 2–6, 2026**. In-person, free, open to everyone.
+Website for the **GeoFLAC/DynEarthSol Workshop & Hackathon** — Daejeon, Korea, **November 2–6, 2026**. In-person, free, open to everyone.
 
 - 🔗 **Live site:** https://sungho91.github.io/geoflac-des-2026/
 - 📦 **Repository:** https://github.com/sungho91/geoflac-des-2026
@@ -21,10 +21,12 @@ GitHub Pages rebuilds in ~1 minute. (Hard-refresh with `Ctrl+F5` if you don't se
 GitHub Pages is static and can't store submissions, and Google/OneDrive are blocked on the KIGAM
 network — so we use free **Tally.so** forms, linked from the site buttons:
 
-| Button | Form |
-|--------|------|
-| **Register now** | https://tally.so/r/obv1MN |
-| **Submit a talk** / Open submission form | https://tally.so/r/J9Mx2X |
+| Form | Status |
+|------|--------|
+| Registration | Closed Sep 21, 2026 — button removed from the site |
+| Talk submission | Closed Sep 21, 2026 — form removed; speakers email slides |
+
+Form links are in the Tally dashboard.
 
 - Tally's free plan caps file uploads at **10 MB/file**. Large files (videos): presenters use the
   site's **"Email a large file"** button (pre-filled `mailto:` to slee91@kigam.re.kr).
