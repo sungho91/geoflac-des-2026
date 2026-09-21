@@ -1,0 +1,60 @@
+# Closes the workshop site automatically after the event:
+#   1. unpublishes the GitHub Pages site, then 2. makes this repository private.
+#
+# Scheduled for Nov 20, 2026, 09:17 KST (00:17 UTC). It repeats daily through Nov 30
+# in case a scheduled run is skipped, and does nothing once the repository is private.
+#
+# Needs a repository secret SITE_ADMIN_TOKEN: a fine-grained personal access token for
+# this repository only, with "Administration" and "Pages" set to "Read and write".
+# Test the token any time: Actions → "Close site after workshop" → Run workflow (dry run).
+# To keep the site up longer, change the cron date below or disable this workflow.
+name: Close site after workshop
+
+on:
+  schedule:
+    - cron: '17 0 20-30 11 *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run — only check the token (uncheck to close the site NOW)'
+        type: boolean
+        default: true
+
+permissions: {}
+
+jobs:
+  close:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Unpublish Pages and make the repository private
+        env:
+          GH_TOKEN: ${{ secrets.SITE_ADMIN_TOKEN }}
+          REPO: ${{ github.repository }}
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
+        run: |
+          set -euo pipefail
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::error::Repository secret SITE_ADMIN_TOKEN is not set."; exit 1
+          fi
+          if [ "$GITHUB_EVENT_NAME" = "schedule" ] && [ "$(date -u +%Y)" != "2026" ]; then
+            echo "Scheduled for 2026 only — nothing to do."; exit 0
+          fi
+          if [ "$(gh api "repos/$REPO" --jq .private)" = "true" ]; then
+            echo "Repository is already private — nothing to do."; exit 0
+          fi
+
+          if [ "$DRY_RUN" = "true" ]; then
+            # Harmless writes that prove the token has both permissions:
+            # rebuild the current Pages site, and re-set the repo to public (it already is).
+            gh api -X POST "repos/$REPO/pages/builds" --silent
+            gh api -X PATCH "repos/$REPO" -F private=false --silent
+            echo "Dry run OK — the token can manage Pages and repository visibility. Nothing was changed."
+            exit 0
+          fi
+
+          if gh api "repos/$REPO/pages" --silent 2>/dev/null; then
+            gh api -X DELETE "repos/$REPO/pages" --silent
+            echo "GitHub Pages site unpublished."
+          fi
+          gh api -X PATCH "repos/$REPO" -F private=true --silent
+          echo "Repository is now private."

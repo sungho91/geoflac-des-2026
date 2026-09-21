@@ -78,3 +78,8 @@ Hackathon agenda · Talks · Call for Presentations · Venue · Travel & Stay ·
 GitHub Pages serves the `main` branch (root) at the live URL above. To re-check: repo
 **Settings → Pages**. Linking from a future personal site (`https://sungho91.github.io/`) is as
 simple as adding a link to the live URL.
+
+**Auto-close:** [`.github/workflows/close-site.yml`](.github/workflows/close-site.yml) unpublishes
+the site and makes this repository private on **Nov 20, 2026** (needs the `SITE_ADMIN_TOKEN`
+secret — see the comments in that file). To keep the site up longer, edit the date there or
+disable the workflow in the **Actions** tab.
