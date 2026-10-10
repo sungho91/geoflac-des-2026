@@ -131,6 +131,10 @@
     .btn-ghost { border-color: var(--border); color: var(--text); background: var(--bg-soft); }
     .btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); }
     .btn-closed { border-color: var(--border); color: var(--muted); background: var(--bg-soft); cursor: not-allowed; }
+    .section-actions { display: flex; gap: 14px; flex-wrap: wrap; margin: -20px 0 40px; }
+    @media (max-width: 600px) {
+      .section-actions .btn { width: 100%; text-align: center; }
+    }
 
     .facts { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; margin-top: 56px; }
     .fact { text-align: center; }
@@ -388,6 +392,11 @@
       <h2 class="section-title">What is DynEarthSol?</h2>
       <p class="section-intro"><b>DynEarthSol</b> is the open-source code we use throughout the tutorials — a finite element solver for the long-term deformation of Earth's lithosphere in 2D and 3D. Instead of assembling and storing the enormous matrices that traditional implicit methods require, DynEarthSol uses an <b>explicit, matrix-free</b> formulation based on the FLAC algorithm, so it sidesteps the "memory wall" and scales efficiently across CPUs and GPUs.</p>
 
+      <div class="section-actions">
+        <a class="btn btn-primary" href="https://geoflac.github.io/DynEarthSol/" target="_blank" rel="noopener">Project website &amp; docs ↗</a>
+        <a class="btn btn-ghost" href="https://github.com/GeoFLAC/DynEarthSol" target="_blank" rel="noopener">Source code on GitHub ↗</a>
+      </div>
+
       <div class="cards">
         <div class="card">
           <div class="ico">⚡</div>
@@ -406,9 +415,6 @@
         </div>
       </div>
 
-      <div style="margin-top:28px">
-        <a class="btn btn-primary" href="https://github.com/GeoFLAC/DynEarthSol" target="_blank" rel="noopener">DynEarthSol on GitHub ↗</a>
-      </div>
     </div>
   </section>
 
@@ -417,7 +423,11 @@
     <div class="wrap reveal">
       <div class="section-tag">Showcase</div>
       <h2 class="section-title">Gallery</h2>
-      <p class="section-intro">Results, simulations, and visualizations made with DynEarthSol. Participants are welcome to contribute — see how to add yours in the project README.</p>
+      <p class="section-intro">Results, simulations, and visualizations made with DynEarthSol. To contribute, email an image, video, or public link, or open a GitHub issue. Include a short caption, credit or affiliation, and confirm that you have permission to publish it. The organizers will review and add selected submissions.</p>
+      <div class="section-actions">
+        <a class="btn btn-primary" href="mailto:slee91@kigam.re.kr?subject=GeoFLAC%2FDynEarthSol%202026%20%E2%80%94%20Gallery%20contribution">Email a contribution ↗</a>
+        <a class="btn btn-ghost" href="https://github.com/sungho91/geoflac-des-2026/issues/new?template=gallery-contribution.md" target="_blank" rel="noopener">Submit via GitHub issue ↗</a>
+      </div>
       <div id="gallery-grid" class="gallery-grid"><!-- rendered from data below --></div>
       <p id="gallery-empty" class="note" style="display:none">No images yet — DynEarthSol results will appear here soon.</p>
       <noscript><p class="note">Please enable JavaScript to view the gallery.</p></noscript>
@@ -882,7 +892,10 @@ make</div>
   <!-- ===== Footer ===== -->
   <footer>
     <div class="wrap">
-      <div>© 2026 GeoFLAC/DynEarthSol Workshop &amp; Hackathon</div>
+      <div>
+        <div>© 2026 GeoFLAC/DynEarthSol Workshop &amp; Hackathon</div>
+        <div style="margin-top:4px">Organized by the GeoFLAC/DynEarthSol community</div>
+      </div>
       <div>
         <a href="#about">About</a> &nbsp;·&nbsp;
         <a href="#schedule">Schedule</a> &nbsp;·&nbsp;

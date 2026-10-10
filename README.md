@@ -46,8 +46,14 @@ Find `const TALKS = [ ... ]` near the bottom of `index.html` and add one block p
 ```
 An empty `TALKS` list shows a "no talks yet" message automatically.
 
-## Adding gallery images
-Only post images you own or have permission to share. Then:
+## Gallery contributions
+Participants can send an image, video, or public link by email, or open a
+[gallery contribution issue](https://github.com/sungho91/geoflac-des-2026/issues/new?template=gallery-contribution.md).
+Each submission should include a short caption, credit or affiliation, and confirmation that it may be
+displayed publicly. Maintainers review submissions and publish selected items.
+
+### Publishing gallery images (maintainers)
+Only publish images the contributor owns or has permission to share. Then:
 1. Put the image (PNG/JPG, < 1 MB, ~1200px) in [`gallery/`](gallery/).
 2. Add an entry to `const GALLERY = [ ... ]` near the bottom of `index.html`:
    ```js

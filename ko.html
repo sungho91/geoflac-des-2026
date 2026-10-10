@@ -124,6 +124,10 @@
     .btn-ghost { border-color: var(--border); color: var(--text); background: var(--bg-soft); }
     .btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); }
     .btn-closed { border-color: var(--border); color: var(--muted); background: var(--bg-soft); cursor: not-allowed; }
+    .section-actions { display: flex; gap: 14px; flex-wrap: wrap; margin: -20px 0 40px; }
+    @media (max-width: 600px) {
+      .section-actions .btn { width: 100%; text-align: center; }
+    }
 
     .facts { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; margin-top: 56px; }
     .fact { text-align: center; }
@@ -380,6 +384,11 @@
       <h2 class="section-title">DynEarthSol이란?</h2>
       <p class="section-intro"><b>DynEarthSol</b>은 튜토리얼 전반에서 사용하는 오픈소스 코드로, 지구 암석권의 장기 변형을 2D·3D로 푸는 유한요소 솔버입니다. 전통적인 음해법(implicit)이 요구하는 거대한 행렬을 조립·저장하는 대신, FLAC 알고리즘 기반의 <b>명시적(explicit)·행렬 비조립(matrix-free)</b> 방식을 써서 "메모리 한계"를 우회하고 CPU·GPU에서 효율적으로 확장됩니다.</p>
 
+      <div class="section-actions">
+        <a class="btn btn-primary" href="https://geoflac.github.io/DynEarthSol/" target="_blank" rel="noopener">프로젝트 홈페이지·문서 ↗</a>
+        <a class="btn btn-ghost" href="https://github.com/GeoFLAC/DynEarthSol" target="_blank" rel="noopener">GitHub 소스 코드 ↗</a>
+      </div>
+
       <div class="cards">
         <div class="card">
           <div class="ico">⚡</div>
@@ -398,9 +407,6 @@
         </div>
       </div>
 
-      <div style="margin-top:28px">
-        <a class="btn btn-primary" href="https://github.com/GeoFLAC/DynEarthSol" target="_blank" rel="noopener">GitHub에서 DynEarthSol 보기 ↗</a>
-      </div>
     </div>
   </section>
 
@@ -409,7 +415,11 @@
     <div class="wrap reveal">
       <div class="section-tag">쇼케이스</div>
       <h2 class="section-title">갤러리</h2>
-      <p class="section-intro">DynEarthSol로 만든 결과·시뮬레이션·시각화입니다. 참가자도 기여할 수 있어요 — 추가 방법은 저장소 README를 참고하세요.</p>
+      <p class="section-intro">DynEarthSol로 만든 결과·시뮬레이션·시각화입니다. 이미지·영상 또는 공개 링크를 이메일이나 GitHub issue로 보내 주세요. 짧은 설명과 이름·소속, 공개 게시 허가 여부를 함께 적어 주시면 운영진이 검토 후 갤러리에 게시합니다.</p>
+      <div class="section-actions">
+        <a class="btn btn-primary" href="mailto:slee91@kigam.re.kr?subject=GeoFLAC%2FDynEarthSol%202026%20%E2%80%94%20Gallery%20contribution">이메일로 보내기 ↗</a>
+        <a class="btn btn-ghost" href="https://github.com/sungho91/geoflac-des-2026/issues/new?template=gallery-contribution.md" target="_blank" rel="noopener">GitHub issue로 제출 ↗</a>
+      </div>
       <div id="gallery-grid" class="gallery-grid"></div>
       <p id="gallery-empty" class="note" style="display:none">아직 이미지가 없습니다 — DynEarthSol 결과가 곧 여기에 올라옵니다.</p>
       <noscript><p class="note">갤러리를 보려면 JavaScript를 켜주세요.</p></noscript>
@@ -872,7 +882,10 @@ make</div>
   <!-- ===== Footer ===== -->
   <footer>
     <div class="wrap">
-      <div>© 2026 GeoFLAC/DynEarthSol 워크샵 &amp; 해커톤</div>
+      <div>
+        <div>© 2026 GeoFLAC/DynEarthSol 워크샵 &amp; 해커톤</div>
+        <div style="margin-top:4px">GeoFLAC/DynEarthSol 커뮤니티 주최</div>
+      </div>
       <div>
         <a href="#about">소개</a> &nbsp;·&nbsp;
         <a href="#schedule">일정</a> &nbsp;·&nbsp;
