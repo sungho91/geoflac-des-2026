@@ -509,7 +509,7 @@
           <div class="prog-wrap"><table>
             <tr><td>09:30–10:40</td><td><b>Tutorial 1</b><span class="tbc">topic TBA</span><span class="who">Eunseo Choi</span></td></tr>
             <tr class="rest"><td>10:40–10:55</td><td>Coffee break</td></tr>
-            <tr><td>10:55–11:35</td><td><b>Talk · Coupling ASPECT and FastScape</b><span class="who">Jaeyoon Keum</span></td></tr>
+            <tr><td>10:55–11:35</td><td><b>Talk · ASPECT–FastScape coupling and metamorphic core complexes</b><span class="who">Jaeyoon Keum</span></td></tr>
             <tr><td>11:35–12:00</td><td><b>Questions and discussion</b><span class="who">Everyone</span></td></tr>
             <tr class="rest"><td>12:00–13:00</td><td>Lunch — on-site cafeteria</td></tr>
             <tr><td>13:00–13:40</td><td><b>Talk · Thermochronology and thrust systems — the Taiwan case</b><span class="who">Eh Tan</span></td></tr>
@@ -959,10 +959,10 @@ make</div>
       },
       {
         day: "Day 3 · Wed, Nov 4",
-        title: "Coupling ASPECT and FastScape: tectonics and surface processes",
+        title: "Coupling ASPECT and FastScape: numerical strategy and application to metamorphic core complexes under an extensional tectonic environment",
         speaker: "Jaeyoon Keum",
-        affiliation: "Department of Geophysics, Kangwon National University",
-        abstract: "Linking mantle and lithospheric deformation in ASPECT with landscape evolution in FastScape. Full abstract to be announced.",
+        affiliation: "Research Institute for Earth Resources and Department of Geophysics, Kangwon National University",
+        abstract: "Coupled geodynamic and landscape evolution models have recently been developed in both the geodynamic and geomorphic communities. These models have shown that surface processes change the mode of extensional faulting, rift and passive margin architectures, subduction morphologies, and the height of collisional mountain belts. ASPECT (Advanced Solver for Planetary Evolution, Convection, and Tectonics), a finite-element code used widely in geodynamics, has been linked with the landscape evolution model FastScape. In this talk I explain how the two codes are coupled and apply the coupled model to the tectonic evolution of metamorphic core complexes as a natural example. At each time step, FastScape evolves the landscape over the same interval using the surface velocity calculated by ASPECT, and the updated topography is returned to ASPECT as a vertical velocity of the top boundary. I then compare this scheme with the coupling of DES3D and goSPL presented in the tutorial session. The two schemes follow the same loop, but ASPECT solves on an Eulerian mesh with a fixed domain, and DES3D solves on a Lagrangian mesh whose nodes move with the material. The two schemes therefore treat tectonic uplift differently. In ASPECT the mesh does not move before FastScape is called, and FastScape applies the uplift together with erosion. In DES3D the nodes have already moved before the goSPL calculation, and goSPL provides the erosion only. Using the coupled model, I investigate how inherited fault geometry and surface processes influence the development of metamorphic core complexes under an extensional regime. The model consists of a brittle layer above a viscous substrate, with an inherited fault undulation dipping at 45 degrees. Two endmembers of the undulation geometry, Gaussian and sinusoidal, form a single dome and a periodic chain of domes along strike, respectively. Fluvial incision along the steepest topographic gradient carves extension-parallel ridges and valleys on the exhuming footwall in both cases. These results account for the chains of metamorphic domes and their extension-parallel drainage networks observed in the Cyclades and the Woodlark Rift. These findings highlight that numerical models coupling tectonic and surface processes significantly improve our understanding of deep-to-surface Earth dynamics. A tutorial site with the parameter files and an animated description of the coupling loop accompanies the talk.",
         files: [{ label: "ASPECT–FastScape documentation", url: "https://jaykeum.github.io/aspect-fastscape-coupling/" }]
       },
       {
