@@ -484,7 +484,7 @@
           <div class="prog-wrap"><table>
             <tr><td>09:30–10:45</td><td><b>튜토리얼 2 · 변성핵복합체(core complex) 모델링</b><span class="who">Chase J. Shyu</span></td></tr>
             <tr class="rest"><td>10:45–11:00</td><td>휴식</td></tr>
-            <tr><td>11:00–11:40</td><td><b>발표 · 마그마에서 얼음으로 — 유로파 카오스 지형을 위한 이상유동 솔버</b><span class="who">Chase J. Shyu</span></td></tr>
+            <tr><td>11:00–11:40</td><td><b>발표 · 마그마에서 얼음으로 — 행성 암석권과 얼음 껍질 내 유체 이동을 위한 이상유동 솔버</b><span class="who">Chase J. Shyu</span></td></tr>
             <tr><td>11:40–12:00</td><td><b>질의응답 및 토론</b><span class="who">전체</span></td></tr>
             <tr class="rest"><td>12:00–13:00</td><td>점심 — 구내식당</td></tr>
             <tr><td>13:00–13:40</td><td><b>발표 · 대륙 열개와 암석권 신장</b><span class="who">Luc L. Lavier</span></td></tr>
@@ -926,10 +926,10 @@ make</div>
       },
       {
         day: "2일차 · 11/3 (화)",
-        title: "마그마에서 얼음으로: 유로파 카오스 지형을 위한 효율적인 이상유동 솔버",
+        title: "마그마에서 얼음으로: 행성 암석권과 얼음 껍질 내 유체 이동을 위한 효율적인 이상유동 솔버",
         speaker: "Chase J. Shyu, Luc L. Lavier",
         affiliation: "Institute for Geophysics, Jackson School of Geosciences, University of Texas at Austin",
-        abstract: "유로파의 카오스 지형은 액체 물이 얼음 껍질을 통과해 이동하면서 그것을 부수어 놓은 표면 기록일 수 있습니다. 같은 과정이 맨틀에서 마그마 이동을 일으킵니다. 유체가, 그 주위에서 변형하고 압축되는 고체 밖으로 흘러나오는 것입니다. 이는 이상(two-phase) 압축(compaction) 다공질역학으로 기술됩니다. 이를 얼음 껍질에서 모델링하려면 다공질 유동을 자유표면을 가진 점탄소성 고체의 대변형과 결합해야 합니다. 기존 코드는 대부분 음해법(implicit)입니다. 낮은 공극률(약 1 %)에서는 이들 솔버가 특별히 설계된 전처리기(preconditioner)를 필요로 하고, 일부 표준 정식화는 아예 수렴하지 않습니다. 계산 비용 탓에 지금까지 발표된 계산은 압축 시간의 몇 배 수준에 머물렀습니다. 이 연구에서는 라그랑지안 유한요소 지구동역학 코드인 DynEarthSol(DES)에 명시적·행렬 비조립(matrix-free) 이상유동을 구현했습니다. 다르시(Darcy) 유동, 공극률 의존 투수율과 압축 점성, Biot/Yarushina-Podladchikov 다공질역학을 DES의 점성·맥스웰·탄점소성(EVP) 유변학과 2차원·3차원에서 결합하고, 유효응력 항복과 감압 약화(decompaction weakening)를 포함합니다. 해석해가 존재하는 마그마 영역에서 코드를 검증했으며, 2차원과 3차원 모두에서 공극률 고립파(solitary wave) 계열을 재현하고 위상 속도도 이론과 비슷합니다. 20 m 해상도의 64k 요소 EVP 모델은 CPU 6코어에서 8시간 만에, 6개 CPU 코어에서 약 1시간 만에, GPU나 클러스터 자원 없이 600 kyr(압축 시간 약 28배)에 도달해, 보통 수준의 하드웨어로도 지질학적 시간 규모의 매개변수 탐색이 가능합니다. 진행 중인 연구에서는 이 틀을 얼음 껍질 물성에 적용하고, 잠열을 동반한 질량 보존 얼음–물 상변화를 추가하고 있습니다.",
+        abstract: "유로파의 카오스 지형은 변형되며 깨지는 얼음 껍질 속을 이동하는 액체 물을 기록하고 있을 수 있으며, 후보로 제시된 형성 기작들은 주로 그 액체가 어떻게 이동하는지에서 서로 다릅니다. 같은 물리가 해령과 열개대 아래의 용융체 추출도 지배합니다. 그곳에서 유체는 고체 기질(matrix)을 통과해 흐르고, 기질은 그 주위에서 압축·항복·변형하며, 이는 이상(two-phase) 압축(compaction) 다공질역학으로 기술됩니다. 이를 얼음 껍질에서 모델링하려면 낮은 공극률에서 긴 시간에 걸쳐 다공질 유동을 자유표면이 있는 대변형 탄점소성(elasto-visco-plastic, EVP) 유동과 결합해야 합니다. 이상유동 코드는 대부분 음해법(implicit)입니다. 매 시간 단계마다 전역 안장점(saddle-point) 문제를 풀어야 하고, 낮은 공극률에서는 전처리기(preconditioner)가 실패하며, 3차원 실제 계산(production run)에는 클러스터가 필요하고, 발표된 계산은 압축 시간(compaction time)의 약 1배에 그칩니다. 이 발표에서는 리메싱과 마커를 사용하는 라그랑지안 유한요소 코드 DynEarthSol v2.0에 구현한 명시적(explicit)·행렬 비조립(matrix-free) 이상유동 솔버를 소개합니다. 이 솔버는 다르시(Darcy) 유동, 공극률에 의존하는 투수율과 압축 점성을 Yarushina–Podladchikov 점탄성 압축 쌍(visco-elastic compaction pair)을 통해 2차원·3차원의 점성·맥스웰(Maxwell)·EVP 유변학과 결합합니다. 여기에 유효응력 항복, 체적 항복(bulk yield), 탈압축 약화(decompaction weakening), 팽창성(dilatancy)을 더했고, 유체로는 감람암 용융으로 생긴 용융체나 IAPWS 융해 곡선에 따라 얼음에서 생긴 물을 다룹니다. 기질에서 유체가 빠져나가는 곳에서는 격자 세분화(mesh refinement)로 압축 길이(compaction length)가 해상되도록 유지합니다. 해석해가 있는 마그마 영역(magmatic regime)에서 공극률 고립파(solitary porosity wave)는 2차원과 3차원 모두에서 이론과 1 % 이내로 일치하게 전파하고, 다섯 가지 다공소성(poro-plastic) 법칙은 각각의 닫힌 형태(closed-form) 예측과 1.5 % 이내에서 일치합니다. 셀당·압축 시간당 비용은 음해법 GPU 솔버보다 2–6배 낮고, 400 kyr의 EVP 유동을 CPU 6코어로 1시간 만에 계산합니다. 3 Myr 열개(rifting) 모델에서 용융체는 400–600 kyr에 덮개층(lid)을 뚫고, 약 2 km 깊이에서 암상(sill)으로 고결되며, 이후에는 점점 더 깊은 곳에서 열개 축(axis)에 덧붙어 고결됩니다. 바다 위에 놓인 두께 20 km의 얼음 껍질에서는 조석 가열이 껍질 중간에서 최대가 되고, 껍질 하부의 온도가 약 30 K 올라갑니다. 물은 상승류(upwelling)의 바닥에서 생겨 대류에 실려 5–38 cm/yr로 운반되지만, 얼음에서 분리되는 속도는 1–3 cm/yr에 불과합니다. 남은 과제는 젖은 얼음(wet ice)에서 나타나는 압력 체커보드(checkerboard) 패턴입니다.",
         files: []
       },
       {
