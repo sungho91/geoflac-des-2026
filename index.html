@@ -448,7 +448,7 @@
         </div>
         <div class="day">
           <div class="date">Tue<span>Nov 3</span></div>
-          <div><h3>Workshop Day 2 — Melt migration &amp; two-phase flow</h3><p>Talks on melt migration and two-phase flow, and tutorials on core-complex and subduction modeling. Workshop banquet in the evening.</p></div>
+          <div><h3>Workshop Day 2 — Melt migration &amp; two-phase flow</h3><p>Participant lightning talks (1 minute each), talks on continental rifting, melt migration and two-phase flow, and tutorials on core-complex and subduction modeling. Workshop banquet in the evening.</p></div>
         </div>
         <div class="day">
           <div class="date">Wed<span>Nov 4</span></div>
@@ -488,14 +488,14 @@
         </details>
 
         <details>
-          <summary><span>Day 2 · Tue, Nov 3<span class="theme">Tutorials + melt migration / two-phase flow</span></span></summary>
+          <summary><span>Day 2 · Tue, Nov 3<span class="theme">Lightning talks + tutorials + melt migration / two-phase flow</span></span></summary>
           <div class="prog-wrap"><table>
-            <tr><td>09:30–10:45</td><td><b>Tutorial 2 · Core-complex modeling</b><span class="who">Chase J. Shyu</span></td></tr>
-            <tr class="rest"><td>10:45–11:00</td><td>Coffee break</td></tr>
-            <tr><td>11:00–11:40</td><td><b>Talk · From Magma to Ice — a two-phase flow solver for fluid migration in planetary lithospheres and ice shells</b><span class="who">Chase J. Shyu</span></td></tr>
-            <tr><td>11:40–12:00</td><td><b>Questions and discussion</b><span class="who">Everyone</span></td></tr>
+            <tr><td>09:30–10:00</td><td><b>Participant lightning talks · 1 minute each</b><span class="who">Everyone</span></td></tr>
+            <tr class="rest"><td>10:00–10:15</td><td>Coffee break</td></tr>
+            <tr><td>10:15–10:55</td><td><b>Talk · Continental rifting and lithospheric extension</b><span class="who">Luc L. Lavier</span></td></tr>
+            <tr><td>10:55–12:00</td><td><b>Tutorial 2 · Core-complex modeling</b><span class="who">Chase J. Shyu</span></td></tr>
             <tr class="rest"><td>12:00–13:00</td><td>Lunch — on-site cafeteria</td></tr>
-            <tr><td>13:00–13:40</td><td><b>Talk · Continental rifting and lithospheric extension</b><span class="who">Luc L. Lavier</span></td></tr>
+            <tr><td>13:00–13:40</td><td><b>Talk · From Magma to Ice — a two-phase flow solver for fluid migration in planetary lithospheres and ice shells</b><span class="who">Chase J. Shyu</span></td></tr>
             <tr><td>13:40–14:55</td><td><b>Tutorial 2 · Subduction modeling</b><span class="who">Chase J. Shyu</span></td></tr>
             <tr class="rest"><td>14:55–15:10</td><td>Coffee break</td></tr>
             <tr><td>15:10–16:40</td><td><b>Tutorial 2 · Core-complex and subduction modeling</b><span class="who">Chase J. Shyu</span></td></tr>
@@ -943,18 +943,18 @@ make</div>
       },
       {
         day: "Day 2 · Tue, Nov 3",
-        title: "From Magma to Ice: An Efficient Two-Phase Flow Solver for Fluid Migration in Planetary Lithospheres and Ice Shells",
-        speaker: "Chase J. Shyu & Luc L. Lavier",
-        affiliation: "Institute for Geophysics, Jackson School of Geosciences, University of Texas at Austin",
-        abstract: "Chaos terrain on Europa may record liquid water moving through a deforming, fracturing ice shell, and the candidate formation mechanisms differ mainly in how that liquid moves. The same physics governs melt extraction beneath ridges and rifts, where a fluid flows through a solid matrix that compacts, yields, and deforms around it, described by two-phase compaction poromechanics. Modeling it in an ice shell requires coupling porous flow to large-deformation elasto-visco-plastic (EVP) flow with a free surface, at low porosity and over long times. Most two-phase codes are implicit. Each step is a global saddle-point solve, the preconditioners fail at low porosity, 3-D production runs need clusters, and published runs reach about one compaction time. We present an explicit, matrix-free two-phase flow solver in DynEarthSol v2.0, a Lagrangian finite-element code with remeshing and markers. It couples Darcy flow, porosity-dependent permeability and compaction viscosity through a Yarushina–Podladchikov visco-elastic compaction pair to viscous, Maxwell and EVP rheologies in 2-D and 3-D. It adds effective-stress yielding, bulk yield, decompaction weakening and dilatancy, and it takes melt from peridotite melting or water from ice on the IAPWS melting curve. Mesh refinement keeps the compaction length resolved where the matrix drains. In the magmatic regime, where analytic solutions exist, solitary porosity waves travel within 1 % of theory in 2-D and 3-D, and five poro-plastic laws match their closed-form predictions within 1.5 %. Per cell per compaction time the solver is 2–6× cheaper than an implicit GPU solver, and 400 kyr of EVP flow runs in an hour on six CPU cores. In a 3-Myr rifting model, melt breaches the lid at 400–600 kyr, freezes into a sill at ~2 km depth, and later freezes onto the axis at increasing depth. In a 20-km-thick ice shell over an ocean, tidal heating peaks in the middle of the shell and the lower shell warms by about 30 K. Water forms at the base of the upwellings and is carried by convection at 5–38 cm/yr while it separates at only 1–3 cm/yr. The remaining challenge is a pressure checkerboard in wet ice.",
-        files: []
-      },
-      {
-        day: "Day 2 · Tue, Nov 3",
         title: "Continental rifting and lithospheric extension",
         speaker: "Luc L. Lavier",
         affiliation: "Institute for Geophysics, Jackson School of Geosciences, University of Texas at Austin",
         abstract: "An introduction to GeoFLAC and a look back at earlier and ongoing work on continental rifting and lithospheric extension. Full abstract to be announced.",
+        files: []
+      },
+      {
+        day: "Day 2 · Tue, Nov 3",
+        title: "From Magma to Ice: An Efficient Two-Phase Flow Solver for Fluid Migration in Planetary Lithospheres and Ice Shells",
+        speaker: "Chase J. Shyu & Luc L. Lavier",
+        affiliation: "Institute for Geophysics, Jackson School of Geosciences, University of Texas at Austin",
+        abstract: "Chaos terrain on Europa may record liquid water moving through a deforming, fracturing ice shell, and the candidate formation mechanisms differ mainly in how that liquid moves. The same physics governs melt extraction beneath ridges and rifts, where a fluid flows through a solid matrix that compacts, yields, and deforms around it, described by two-phase compaction poromechanics. Modeling it in an ice shell requires coupling porous flow to large-deformation elasto-visco-plastic (EVP) flow with a free surface, at low porosity and over long times. Most two-phase codes are implicit. Each step is a global saddle-point solve, the preconditioners fail at low porosity, 3-D production runs need clusters, and published runs reach about one compaction time. We present an explicit, matrix-free two-phase flow solver in DynEarthSol v2.0, a Lagrangian finite-element code with remeshing and markers. It couples Darcy flow, porosity-dependent permeability and compaction viscosity through a Yarushina–Podladchikov visco-elastic compaction pair to viscous, Maxwell and EVP rheologies in 2-D and 3-D. It adds effective-stress yielding, bulk yield, decompaction weakening and dilatancy, and it takes melt from peridotite melting or water from ice on the IAPWS melting curve. Mesh refinement keeps the compaction length resolved where the matrix drains. In the magmatic regime, where analytic solutions exist, solitary porosity waves travel within 1 % of theory in 2-D and 3-D, and five poro-plastic laws match their closed-form predictions within 1.5 %. Per cell per compaction time the solver is 2–6× cheaper than an implicit GPU solver, and 400 kyr of EVP flow runs in an hour on six CPU cores. In a 3-Myr rifting model, melt breaches the lid at 400–600 kyr, freezes into a sill at ~2 km depth, and later freezes onto the axis at increasing depth. In a 20-km-thick ice shell over an ocean, tidal heating peaks in the middle of the shell and the lower shell warms by about 30 K. Water forms at the base of the upwellings and is carried by convection at 5–38 cm/yr while it separates at only 1–3 cm/yr. The remaining challenge is a pressure checkerboard in wet ice.",
         files: []
       },
       {
